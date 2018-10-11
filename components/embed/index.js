@@ -2,7 +2,7 @@ var html = require('choo/html')
 var player = require('./player')
 var { i18n } = require('../base')
 
-var text = i18n(require('./lang.json'))
+var text = i18n()
 
 // match short and long youtube links
 // https://www.youtube.com/watch?v=WwE7TxtoyqM
