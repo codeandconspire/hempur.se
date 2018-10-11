@@ -5,7 +5,7 @@
 @import "./utilities/text.css";
 
 :root {
-  --default-font-family: "Maison Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --default-font-family: "MN", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --default-font-size: 1rem;
   --default-line-height: 1.625;
   --heading-letter-spacing: -0.19;
@@ -30,17 +30,17 @@
  */
 
 @font-face {
-  font-family: "Maison Neue";
+  font-family: "MN";
   font-style: normal;
   font-weight: normal;
-  src: url("./fonts/maisonneue-book.woff2") format("woff2");
+  src: url("./fonts/mn-book.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: "Maison Neue";
+  font-family: "MN";
   font-style: normal;
   font-weight: bold;
-  src: url("./fonts/maisonneue-bold.woff2") format("woff2");
+  src: url("./fonts/mn-bold.woff2") format("woff2");
 }
 
 /**
