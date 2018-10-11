@@ -4,10 +4,6 @@
 .Text {
   width: 100%;
   max-width: 39em;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: rgb(var(--current-color));
-  font-family: var(--default-font-family);
 }
 
 .Text--large,

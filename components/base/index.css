@@ -71,9 +71,9 @@
   text-rendering: geometricPrecision; /* 7 */
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1000px) {
   :root {
-    font-size: 120%;
+    font-size: 125%;
   }
 }
 
@@ -98,14 +98,6 @@ img,
 video,
 iframe {
   vertical-align: bottom;
-}
-
-/**
- * Inline elements
- */
-
-strong {
-  font-weight: 600;
 }
 
 /*
