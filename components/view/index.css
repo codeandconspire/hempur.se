@@ -13,6 +13,12 @@
   padding-top: 10rem;
 }
 
+@media (min-width: 1000px) {
+  .View-main {
+    padding-top: 14rem;
+  }
+}
+
 .View-main--stack {
   padding-top: 0;
 }
@@ -34,6 +40,7 @@
   --current-color: var(--default-background-color);
   --current-background: var(--default-color);
   padding: 3rem 0 2.5rem;
+  margin-top: 5rem;
   color: rgb(var(--current-color));
   background-color: rgb(var(--current-background));
 }

@@ -3,7 +3,12 @@
 /** @define Text */
 .Text {
   width: 100%;
-  max-width: 38em;
+  max-width: 35em;
+}
+
+.Text--center {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .Text--large,
@@ -148,7 +153,7 @@
 .Text .Text-h4,
 .Text .Text-h5,
 .Text .Text-h6 {
-  margin: 1em 0 0;
+  margin: 0.6em 0 0.8em;
   color: rgb(var(--current-color));
   font-weight: bold;
   font-family: var(--heading-font-family);
@@ -172,12 +177,14 @@
 .Text .Text-h3 {
   font-size: 2em;
   line-height: 1.15;
+  margin: 1.5em 0 1em;
 }
 
 .Text h4,
 .Text .Text-h4 {
   font-size: 1.5em;
-  line-height: 1.15;
+  line-height: 1.4;
+  margin: 0.4em 0 0.4em;
 }
 
 .Text h5,
@@ -186,7 +193,8 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   line-height: inherit;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.06em;
+  margin-left: 0.1em;
 }
 
 @media (min-width: 1000px) {

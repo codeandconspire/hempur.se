@@ -17,6 +17,7 @@
   display: block;
   position: relative;
   margin: 0 0.4em;
+  line-height: 1.4;
 }
 
 .Menu-link {
