@@ -24,6 +24,12 @@
   --focus-ring-color: var(--color-gray-dark);
 
   --max-width: 1800px;
+
+  /* Easing curves */
+
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /**

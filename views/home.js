@@ -1,6 +1,7 @@
 var html = require('choo/html')
 var welcome = require('../components/welcome')
 var button = require('../components/button')
+var embed = require('../components/embed')
 
 module.exports = home
 
@@ -38,7 +39,7 @@ function home (state, emit) {
         <img class="u-inlineBlock u-spaceV3 u-spaceH2" width="45" height="45" src="https://via.placeholder.com/45x45" alt="">
       </div>
       <!-- /slice -->
-
+      ${embed({ url: 'https://vimeo.com/85390732', title: 'Fantastiska bambuskogar' })}
       <!-- slice -->
     </main>
   `

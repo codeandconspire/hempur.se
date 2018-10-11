@@ -4,6 +4,7 @@ var logo = require('../logo')
 var menu = require('../menu')
 var error = require('./error')
 var { i18n } = require('../base')
+var player = require('../embed/player')
 
 var text = i18n()
 
@@ -47,6 +48,7 @@ View.wrap = function (view) {
             </div>
           </div>
         </footer>
+        ${player.render(null)}
       </body>
     `
   }
