@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1rem 0;
+  padding: 2.2rem 0;
   position: absolute;
   left: 50%;
   top: 0;
@@ -32,7 +32,7 @@
 .View-footer {
   --current-color: var(--default-background-color);
   --current-background: var(--default-color);
-  padding: 2rem 0;
+  padding: 3rem 0 2.5rem;
   margin-top: 2rem;
   color: rgb(var(--current-color));
   background-color: rgb(var(--current-background));
@@ -43,6 +43,7 @@
   height: 1px;
   width: 100%;
   border: 0;
+  margin: 1.5rem;
   background-color: rgba(var(--current-color), 0.1);
 }
 
@@ -51,4 +52,10 @@
   justify-content: space-between;
   align-items: center;
   color: rgba(var(--current-color), 0.3);
+}
+
+@media (min-width: 1000px) {
+  .View-divider {
+    margin: 2.5rem 0;
+  }
 }

@@ -3,7 +3,7 @@
 /** @define Menu */
 .Menu {
   display: flex;
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin: 0 -0.5rem;
 }
 
@@ -16,12 +16,11 @@
 .Menu-item {
   display: block;
   position: relative;
-  margin: 0 0.5em;
+  margin: 0 0.4em;
 }
 
 .Menu-link {
   display: inline-block;
-  line-height: 1.8;
 }
 
 .Menu-link::after {
@@ -35,18 +34,26 @@
 
 .Menu:not(.Menu--column) .Menu-link {
   border-bottom: 1px solid currentColor;
-  padding-bottom: 0.05em;
-  margin-bottom: 0.45em;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 999px) {
   .Menu--column {
     flex-direction: column;
-    margin: 0;
+    margin: 0 0 2.5rem;
   }
 
   .Menu--column .Menu-item {
-    margin: 0;
+    margin: 0.4em 0;
+  }
+}
+
+@media (min-width: 1000px) {
+  .Menu {
+    margin: 0 -0.8rem;
+  }
+
+  .Menu-item {
+    margin: 0 0.8em;
   }
 }
 
