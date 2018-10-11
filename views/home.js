@@ -46,7 +46,7 @@ function home (state, emit) {
       <div class="u-spaceV8">
         <div class="u-container">
           <div class="Text u-spaceB6">
-            <strong class="u-textUppercase">Hur allt började</strong>
+            <strong class="Text-label">Hur allt började</strong>
             <h1 class="u-spaceT3">Vi är ett gäng som bryr oss på riktigt</h1>
           </div>
           ${button({ class: 'Button--invert', href: '/om-hempur', text: 'Läs mer om Hempur' })}
