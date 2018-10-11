@@ -39,7 +39,19 @@ function home (state, emit) {
         <img class="u-inlineBlock u-spaceV3 u-spaceH2" width="45" height="45" src="https://via.placeholder.com/45x45" alt="">
       </div>
       <!-- /slice -->
+      <!-- slice -->
       ${embed({ url: 'https://vimeo.com/85390732', title: 'Fantastiska bambuskogar' })}
+      <!-- /slice -->
+      <!-- slice -->
+      <div class="u-spaceV8">
+        <div class="u-container">
+          <div class="Text u-spaceB6">
+            <strong class="u-textUppercase">Hur allt började</strong>
+            <h1 class="u-spaceT3">Vi är ett gäng som bryr oss på riktigt</h1>
+          </div>
+          ${button({ class: 'Button--invert', href: '/om-hempur', text: 'Läs mer om Hempur' })}
+        </div>
+      </div>
       <!-- slice -->
     </main>
   `

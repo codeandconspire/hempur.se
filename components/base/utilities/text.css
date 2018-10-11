@@ -23,8 +23,12 @@
   direction: rtl !important;
 }
 
-.u-nowrap {
+.u-textNowrap {
   white-space: nowrap !important;
+}
+
+.u-textUppercase {
+  text-transform: uppercase !important;
 }
 
 .u-textDefault {
