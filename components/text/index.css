@@ -3,7 +3,7 @@
 /** @define Text */
 .Text {
   width: 100%;
-  max-width: 39em;
+  max-width: 38em;
 }
 
 .Text--large,
@@ -42,34 +42,12 @@
 .Text p,
 .Text ul,
 .Text ol {
-  margin: 0;
-}
-
-.Text p,
-.Text ul,
-.Text ol {
-  margin-top: 1.3em;
-}
-
-.Text p,
-.Text ul,
-.Text ol {
-  margin-bottom: 1.3em;
+  margin: 0.8em 0;
 }
 
 .Text img,
 .Text pre {
-  margin: 0;
-}
-
-.Text img,
-.Text pre {
-  margin-top: 1.5em;
-}
-
-.Text img,
-.Text pre {
-  margin-bottom: 1.5em;
+  margin: 1.5em 0;
 }
 
 .Text img {
@@ -80,12 +58,14 @@
 
 .Text pre {
   max-width: 100%;
-  padding: 1em;
+  padding: 1.5em;
   overflow: auto;
-  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 1.3;
   text-align: left;
   background: rgb(var(--current-color));
   color: rgb(var(--current-background));
+  border-radius: 0.3rem;
 }
 
 /**
@@ -98,7 +78,7 @@
 
 .Text ol {
   list-style-type: decimal;
-  padding-left: 1.5em;
+  padding-left: 1em;
 }
 
 .Text ul > li {
@@ -111,7 +91,9 @@
 }
 
 .Text ul > li::before {
-  content: "–";
+  content: "•";
+  font-size: 150%;
+  line-height: 1.1em;
   position: absolute;
   left: 0;
   font-weight: bold;
@@ -166,7 +148,7 @@
 .Text .Text-h4,
 .Text .Text-h5,
 .Text .Text-h6 {
-  margin: 1em 0 -0.25em 0;
+  margin: 1em 0 0;
   color: rgb(var(--current-color));
   font-weight: bold;
   font-family: var(--heading-font-family);
