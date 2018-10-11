@@ -53,6 +53,9 @@ function home (state, emit) {
         </div>
       </div>
       <!-- slice -->
+      <!-- slice -->
+      ${embed({ url: 'https://vimeo.com/184953766', title: 'En oförglömlig resa' })}
+      <!-- /slice -->
     </main>
   `
 }
