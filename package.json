@@ -4,7 +4,7 @@
   "description": "Public website of the Hempur brand",
   "main": "index.js",
   "scripts": {
-    "test": "standard && dependency-check .",
+    "test": "standard",
     "deploy": "npx now -T codeandconspire && npx now alias -T codeandconspire",
     "start": "node server.js"
   },
@@ -44,7 +44,6 @@
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "choo-devtools": "^2.5.1",
-    "dependency-check": "^3.2.1",
     "standard": "^12.0.1"
   },
   "dependencies": {
