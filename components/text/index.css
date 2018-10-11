@@ -118,7 +118,7 @@
   content: "–";
   position: absolute;
   left: 0;
-  font-weight: 600;
+  font-weight: bold;
   color: var(--color-theme)
 }
 
@@ -214,6 +214,7 @@
 .Text .Text-h4 {
   margin: 0 0 -0.25em;
   font-weight: 600;
+  font-weight: bold;
   font-family: var(--heading-font-family);
   line-height: var(--heading-line-height);
   letter-spacing: var(--heading-letter-spacing);
@@ -244,7 +245,6 @@
 .Text .Text-h5,
 .Text .Text-h6 {
   margin: 1.3em 0;
-  font-weight: 600;
   font-size: inherit;
   line-height: inherit;
 }
