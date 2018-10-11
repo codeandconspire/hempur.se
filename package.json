@@ -1,0 +1,72 @@
+{
+  "name": "hempur.se",
+  "version": "1.0.0",
+  "description": "Public website of the Hempur brand",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && dependency-check .",
+    "deploy": "npx now -T codeandconspire && npx now alias -T codeandconspire",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeandconspire/hempur.se.git"
+  },
+  "author": "code and conspire",
+  "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/codeandconspire/hempur.se/issues"
+  },
+  "homepage": "https://github.com/codeandconspire/hempur.se#readme",
+  "documentify": {
+    "transform": [
+      [
+        "./lib/document.js",
+        {
+          "order": "end"
+        }
+      ]
+    ]
+  },
+  "now": {
+    "alias": "hempur.se",
+    "env": {
+      "NODE_ENV": "production",
+      "PRISMIC_HEMPUR_SECRET": "@prismic-hempur-secret",
+      "CLOUDFLARE_HEMPUR_ZONE": "@cloudflare-hempur-zone",
+      "CLOUDFLARE_CODEANDCONSPIRE_EMAIL": "@cloudflare-codeandconspire-email",
+      "CLOUDFLARE_CODEANDCONSPIRE_KEY": "@cloudflare-codeandconspire-key"
+    }
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "choo-devtools": "^2.5.1",
+    "dependency-check": "^3.2.1",
+    "standard": "^12.0.1"
+  },
+  "dependencies": {
+    "cccpurge": "^2.0.0",
+    "choo": "^6.13.0",
+    "choo-lazy-view": "^0.2.0",
+    "choo-service-worker": "^2.4.0",
+    "dedent": "^0.7.0",
+    "focus-visible": "^4.1.5",
+    "hstream": "^1.2.0",
+    "jalla": "^0.10.0-5",
+    "koa-body": "^4.0.4",
+    "koa-compose": "^4.1.0",
+    "koa-route": "^3.2.0",
+    "nanolru": "^1.0.0",
+    "normalize.css": "^8.0.0",
+    "postcss-calc": "^6.0.2",
+    "postcss-custom-properties": "^8.0.8",
+    "postcss-focus-visible": "^4.0.0",
+    "prismic-element": "^1.0.0",
+    "prismic-javascript": "^1.5.0",
+    "prismic-richtext": "^0.4.2",
+    "smoothscroll-polyfill": "^0.4.3"
+  }
+}
