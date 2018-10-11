@@ -24,7 +24,7 @@ function error (err) {
               <a href="/">${text`the homepage`}</a>.
             </p>
           `}
-          <img src="https://prismic-io.s3.amazonaws.com/hempur%2Fd81430d2-c5cb-46a3-96c3-21e8e55222d7_4ea.jpg.gif">
+          <img src="/media/upload/w_400/v1539258582/hempur/4ea.jpg.gif">
           ${process.env.NODE_ENV === 'development' ? html`<pre>${err.stack}</pre>` : null}
         </div>
       </div>

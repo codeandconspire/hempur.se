@@ -1,4 +1,5 @@
 var url = require('url')
+var https = require('https')
 var jalla = require('jalla')
 var dedent = require('dedent')
 var body = require('koa-body')
@@ -11,6 +12,33 @@ var resolve = require('./lib/resolve')
 var REPOSITORY = 'https://hempur.cdn.prismic.io/api/v2'
 
 var app = jalla('index.js', { sw: 'sw.js' })
+
+// proxy cloudinary on-demand-transform API
+app.use(get('/media/:type/:transform/:uri(.+)', async function (ctx, type, transform, uri) {
+  if (type === 'fetch' && !/^(?:https?:)?\/\//.test(uri)) {
+    uri = `https://verdensmaalene.cdn.prismic.io/verdensmaalene/${uri}`
+  }
+
+  var res = await new Promise(function (resolve, reject) {
+    var url = `https://res.cloudinary.com/dykmd8idd/image/${type}`
+    if (transform) url += `/${transform}`
+    url += `/${uri}`
+
+    https.get(url, function onresponse (res) {
+      if (res.statusCode >= 400) {
+        var err = new Error(res.statusMessage)
+        err.status = res.statusCode
+        return reject(err)
+      }
+      resolve(res)
+    })
+  })
+
+  var headers = ['etag', 'last-modified', 'content-length', 'content-type']
+  headers.forEach((header) => ctx.set(header, res.headers[header]))
+  ctx.set('Cache-Control', `public, max-age=${60 * 60 * 24 * 365}`)
+  ctx.body = res
+}))
 
 // disallow robots anywhere but live URL
 app.use(get('/robots.txt', function (ctx, next) {

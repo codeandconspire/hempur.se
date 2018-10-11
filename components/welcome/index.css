@@ -3,6 +3,9 @@
 /** @define Welcome */
 .Welcome {
   padding: 10rem 0 5rem;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
   text-align: center;
   background-image: linear-gradient(rgb(var(--color-paper-light)) 25%, rgb(var(--color-paper)) 75%, rgb(var(--color-paper-light)));
   background-size: 100% 100%;
@@ -20,4 +23,20 @@
   display: block;
   margin-top: 1rem;
   font-size: 1rem;
+}
+
+.Welcome-image {
+  display: block;
+  margin: 3.5rem 0;
+  width: 100%;
+  height: auto;
+}
+
+.Welcome-background {
+  width: 266px;
+  height: auto;
+  position: absolute;
+  right: -4rem;
+  top: 3rem;
+  z-index: -1;
 }

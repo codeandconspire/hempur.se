@@ -71,15 +71,17 @@ function metaKey (e) {
 // compose srcset attribute from url for given sizes
 // (str, arr, obj?) -> str
 exports.srcset = srcset
-function srcset (url, sizes, opts = {}) {
+function srcset (uri, sizes, opts = {}) {
+  var type = opts.type || 'fetch'
   var transforms = opts.transforms
   if (!transforms) transforms = 'c_fill,f_auto,q_auto'
   if (!/c_/.test(transforms)) transforms += ',c_fill'
   if (!/f_/.test(transforms)) transforms += ',f_auto'
   if (!/q_/.test(transforms)) transforms += ',q_auto'
 
-  var uri = url.split('verdensmaalene.cdn.prismic.io/verdensmaalene/')[1]
-  assert(uri, 'srcset: url should be a prismic media asset')
+  // trim prismic domain from uri
+  var parts = uri.split('hempur.cdn.prismic.io/hempur/')
+  uri = parts[parts.length - 1]
 
   return sizes.map(function (size) {
     var transform = transforms
@@ -92,7 +94,7 @@ function srcset (url, sizes, opts = {}) {
     }
     if (opts.aspect) transform += `,h_${Math.floor(size * opts.aspect)}`
 
-    return `/media/fetch/${transform},w_${size}/${uri} ${size}w`
+    return `/media/${type}/${transform},w_${size}/${uri} ${size}w`
   }).join(', ')
 }
 
