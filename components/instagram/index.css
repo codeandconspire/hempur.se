@@ -1,0 +1,38 @@
+@import "../base";
+
+/** @define Instagram */
+.Instagram {
+  text-align: center;
+  overflow: hidden;
+}
+
+.Instagram-heading {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.Instagram-heading::before {
+  content: '#';
+}
+
+.Instagram-feed {
+  margin: 1.5rem 0;
+}
+
+.Instagram-image {
+  margin-bottom: -50%;
+}
+
+.Instagram-image:nth-child(2n+1) {
+  transform: translateX(-50%);
+}
+
+.Instagram-image:nth-child(2n+1) {
+  transform: translateX(50%);
+}
+
+.Instagram-footer {
+  display: block;
+  font-weight: bold;
+}

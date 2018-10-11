@@ -4,6 +4,7 @@ var { i18n } = require('../components/base')
 var button = require('../components/button')
 var { input } = require('../components/form')
 var welcome = require('../components/welcome')
+var instagram = require('../components/instagram')
 
 var text = i18n()
 
@@ -56,7 +57,7 @@ function home (state, emit) {
           ${button({ class: 'Button--invert', href: '/om-hempur', text: 'Läs mer om Hempur' })}
         </div>
       </div>
-      <!-- slice -->
+      <!-- /slice -->
       <!-- slice -->
       ${embed({ url: 'https://vimeo.com/184953766', title: 'En oförglömlig resa' })}
       <!-- /slice -->
@@ -76,6 +77,25 @@ function home (state, emit) {
             ${button({ type: 'submit', class: 'Button--invert', text: text`Send` })}
           </form>
         </div>
+      </div>
+      <!-- /slice -->
+      <!-- slice -->
+      <div class="u-container u-spaceV8">
+        ${/* eslint-disable indent */
+          instagram({
+            title: 'skitnajs',
+            images: [{
+              alt: 'Ha en gudomlig dag allihopa önskar vi från Hempur. ❤️🧘🏼‍♂️🌏🎋',
+              url: 'https://scontent-ort2-1.cdninstagram.com/vp/f30d4ca0c3609d1244e1141aeca6e453/5C462433/t51.2885-15/sh0.08/e35/p640x640/42004132_333072920608887_6477531592628633600_n.jpg'
+            }, {
+              alt: 'Ha en gudomlig dag allihopa önskar vi från Hempur. ❤️🧘🏼‍♂️🌏🎋',
+              url: 'https://scontent-ort2-1.cdninstagram.com/vp/f30d4ca0c3609d1244e1141aeca6e453/5C462433/t51.2885-15/sh0.08/e35/p640x640/42004132_333072920608887_6477531592628633600_n.jpg'
+            }, {
+              alt: 'Ha en gudomlig dag allihopa önskar vi från Hempur. ❤️🧘🏼‍♂️🌏🎋',
+              url: 'https://scontent-ort2-1.cdninstagram.com/vp/f30d4ca0c3609d1244e1141aeca6e453/5C462433/t51.2885-15/sh0.08/e35/p640x640/42004132_333072920608887_6477531592628633600_n.jpg'
+            }]
+          })
+        /* eslint-enable indent */}
       </div>
       <!-- /slice -->
     </main>
