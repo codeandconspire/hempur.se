@@ -2,11 +2,12 @@
 
 /** @define Text */
 .Text {
+  width: 100%;
+  max-width: 39em;
+  font-size: 1rem;
+  line-height: 1.5;
   color: rgb(var(--current-color));
   font-family: var(--default-font-family);
-  line-height: 1.5;
-  font-size: 1rem;
-  max-width: 39em;
 }
 
 .Text--large,
@@ -82,9 +83,10 @@
 }
 
 .Text pre {
-  font-size: 12px;
-  overflow: auto;
+  max-width: 100%;
   padding: 1em;
+  overflow: auto;
+  font-size: 12px;
   text-align: left;
   background: rgb(var(--current-color));
   color: rgb(var(--current-background));

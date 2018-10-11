@@ -33,6 +33,7 @@
   --current-color: var(--default-background-color);
   --current-background: var(--default-color);
   padding: 2rem 0;
+  margin-top: 2rem;
   color: rgb(var(--current-color));
   background-color: rgb(var(--current-background));
 }

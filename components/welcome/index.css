@@ -1,0 +1,23 @@
+@import "../base";
+
+/** @define Welcome */
+.Welcome {
+  padding: 10rem 0 5rem;
+  text-align: center;
+  background-image: linear-gradient(rgb(var(--color-paper-light)) 25%, rgb(var(--color-paper)) 75%, rgb(var(--color-paper-light)));
+  background-size: 100% 100%;
+}
+
+.Welcome-heading {
+  font-weight: bold;
+  font-size: 3.5rem;
+  text-align: left;
+  letter-spacing: var(--heading-letter-spacing);
+  line-height: var(--heading-line-height);
+}
+
+.Welcome-subheading {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
