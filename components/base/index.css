@@ -16,9 +16,6 @@
   --current-background: var(--default-background-color);
   --current-color: var(--default-color);
 
-  --color-link: var(--color-theme, 38, 189, 226);
-  --color-link-shaded: var(--color-theme-shaded, 16, 162, 198);
-  --color-text-muted: 148, 148, 148;
   --color-paper: 231, 200, 167;
   --color-paper-light: 245, 218, 189;
 
