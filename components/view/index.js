@@ -30,8 +30,8 @@ View.wrap = function (view) {
 
     return html`
       <body id="app" class="View">
-        <header class="u-container">
-          <nav class="View-header">
+        <header>
+          <nav class="View-header u-container">
             <a href="/" title="${text`Go to start page`}">${logo()}</a>
             ${menu([{ href: '/faq', text: 'Frågor och svar' }, { href: '/kontakt', text: 'Kontakt' }], { direction: 'row' })}
           </nav>
