@@ -1,4 +1,5 @@
 @import "normalize.css";
+@import "./utilities/colors.css";
 @import "./utilities/layout.css";
 @import "./utilities/size.css";
 @import "./utilities/space.css";

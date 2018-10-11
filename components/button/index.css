@@ -3,7 +3,7 @@
 /** @define Button */
 .Button {
   display: inline-block;
-  padding: 1em 2em;
+  padding: 1em 2em 0.8em;
   position: relative;
   z-index: 0;
   font-weight: bold;
@@ -32,4 +32,9 @@
 
 .Button:hover::before {
   opacity: 1;
+}
+
+.Button--invert {
+  color: rgb(var(--current-background));
+  background-color: rgb(var(--current-color));
 }
