@@ -1,0 +1,42 @@
+/* @define utilities */
+.u-textBold {
+  font-weight: 600 !important;
+}
+
+.u-textItalic {
+  font-style: italic !important;
+}
+
+.u-textCenter {
+  text-align: center !important;
+}
+
+.u-textRight {
+  text-align: right !important;
+}
+
+.u-textLeft {
+  text-align: left !important;
+}
+
+.u-rtl {
+  direction: rtl !important;
+}
+
+.u-nowrap {
+  white-space: nowrap !important;
+}
+
+.u-textDefault {
+  font-family: var(--default-font-family) !important;
+  line-height: var(--default-line-height) !important;
+  text-transform: normal;
+  letter-spacing: normal;
+}
+
+.u-textHeading {
+  font-family: var(--heading-font-family) !important;
+  line-height: var(--heading-line-height) !important;
+  letter-spacing: var(--heading-letter-spacing) !important;
+  font-weight: bold;
+}

@@ -1,0 +1,254 @@
+@import "normalize.css";
+@import "./utilities/layout.css";
+@import "./utilities/size.css";
+@import "./utilities/space.css";
+@import "./utilities/text.css";
+
+:root {
+  --default-font-family: "Maison Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --default-font-size: 1rem;
+  --default-line-height: 1.625;
+  --heading-letter-spacing: -0.19;
+  --heading-line-height: 0.9;
+
+  --default-background-color: 250, 245, 243;
+  --default-color: 15, 26, 38;
+  --current-background: var(--default-background-color);
+  --current-color: var(--default-color);
+
+  --color-link: var(--color-theme, 38, 189, 226);
+  --color-link-shaded: var(--color-theme-shaded, 16, 162, 198);
+  --color-text-muted: 148, 148, 148;
+  --color-paper: 231, 200, 167;
+  --color-paper-light: 245, 218, 189;
+
+  --focus-ring-width: 0.2rem;
+  --focus-ring-color: var(--color-gray-dark);
+
+  --max-width: 1800px;
+}
+
+/**
+ * Font declaration
+ */
+
+@font-face {
+  font-family: "Maison Neue";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./fonts/maisonneue-book.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Maison Neue";
+  font-style: normal;
+  font-weight: bold;
+  src: url("./fonts/maisonneue-bold.woff2") format("woff2");
+}
+
+/**
+ * Document styles
+ * 1. Global box sizing
+ * 2. Guard for horizontal scrolling
+ * 3. Support sticky footer solutions
+ * 4. Simply feels better then global text cursor
+ * 5. Site should have a background in case it's iframed
+ * 6. Fabulous text rendering
+ * 7. Fabulous svg text sizing
+ */
+
+:root {
+  box-sizing: border-box; /* 1 */
+  width: 100%; /* 2 */
+  height: 100%; /* 3 */
+  overflow-x: hidden; /* 2 */
+  cursor: default; /* 4 */
+  font-family: var(--default-font-family);
+  background: rgb(var(--default-background-color)); /* 5 */
+  color: rgb(var(--default-color));
+  font-size: 100%;
+  line-height: var(--default-line-height);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased; /* 6 */
+  -moz-osx-font-smoothing: grayscale; /* 6 */
+  text-rendering: geometricPrecision; /* 7 */
+}
+
+@media (min-width: 1500px) {
+  :root {
+    font-size: 120%;
+  }
+}
+
+@media (min-width: 1800px) {
+  :root {
+    font-size: 140%;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; /* 1 */
+}
+
+/**
+ * Media elements
+ */
+
+svg,
+img,
+video,
+iframe {
+  vertical-align: bottom;
+}
+
+/**
+ * Inline elements
+ */
+
+strong {
+  font-weight: 600;
+}
+
+/*
+ * Clickable elements
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove the tapping delay
+ */
+
+ a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover,
+a:active {
+  background-color: transparent; /* 1 */
+}
+
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea,
+[tabindex] {
+  -ms-touch-action: manipulation; /* 2 */
+  touch-action: manipulation; /* 2 */
+}
+
+/**
+ * Reset a few styles
+ */
+
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6,
+ p,
+ ul,
+ ol,
+ blockquote,
+ iframe,
+ figure {
+   font: inherit;
+   margin: 0;
+   border: 0;
+   list-style: none;
+   padding: 0;
+ }
+
+/**
+ * Clean out browser button styles
+ */
+
+button {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  cursor: default;
+}
+
+/**
+ * Pointer is for links, not for actions on the same page
+ */
+
+:root[scripting-enabled] [role="button"],
+:root[scripting-enabled] [role="tab"] {
+  cursor: default;
+}
+
+/**
+ * Remove default focus styles for mouse users if :focus-visible is supported on
+ * this platform, or polyfilled with https://github.com/WICG/focus-visible
+ */
+
+:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+/**
+ * Provide enhanced focus styles for keyboard focus
+ */
+
+:focus-visible {
+  outline: rgb(var(--focus-ring-color)) solid var(--focus-ring-width);
+}
+
+/**
+ * Print styles
+ */
+
+@page  {
+  margin: 2cm;
+}
+
+@media print {
+  a {
+    page-break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  img {
+    page-break-inside: avoid;
+    page-break-after: avoid;
+  }
+
+  ul,
+  ol,
+  img {
+    page-break-before: avoid;
+  }
+
+  iframe {
+    display: none;
+  }
+
+  a,
+  a:link,
+  a:visited {
+    background: transparent;
+    text-decoration: underline;
+  }
+}

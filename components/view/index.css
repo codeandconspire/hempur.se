@@ -1,0 +1,42 @@
+@import "../base";
+
+/** @define View */
+.View {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.View-main {
+  flex: 1 1 auto;
+}
+
+.View-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.View-footer {
+  --current-color: var(--default-background-color);
+  --current-background: var(--default-color);
+  padding: 2rem 0;
+  color: rgb(var(--current-color));
+  background-color: rgb(var(--current-background));
+}
+
+.View-divider {
+  display: block;
+  height: 1px;
+  width: 100%;
+  border: 0;
+  background-color: rgba(var(--current-color), 0.1);
+}
+
+.View-credits {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(var(--current-color), 0.3);
+}
