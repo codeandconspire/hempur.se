@@ -1,7 +1,11 @@
 var html = require('choo/html')
-var welcome = require('../components/welcome')
-var button = require('../components/button')
 var embed = require('../components/embed')
+var { i18n } = require('../components/base')
+var button = require('../components/button')
+var { input } = require('../components/form')
+var welcome = require('../components/welcome')
+
+var text = i18n()
 
 module.exports = home
 
@@ -47,7 +51,7 @@ function home (state, emit) {
         <div class="u-container">
           <div class="Text u-spaceB6">
             <strong class="Text-label">Hur allt började</strong>
-            <h1 class="u-spaceT3">Vi är ett gäng som bryr oss på riktigt</h1>
+            <h2 class="Text-h1 u-spaceT3">Vi är ett gäng som bryr oss på riktigt</h2>
           </div>
           ${button({ class: 'Button--invert', href: '/om-hempur', text: 'Läs mer om Hempur' })}
         </div>
@@ -55,6 +59,24 @@ function home (state, emit) {
       <!-- slice -->
       <!-- slice -->
       ${embed({ url: 'https://vimeo.com/184953766', title: 'En oförglömlig resa' })}
+      <!-- /slice -->
+      <!-- slice -->
+      <div class="u-spaceV8">
+        <div class="u-container">
+          <div class="Text u-textCenter u-spaceB4">
+            <h2 class="Text-h4">Tävla om en resa med Hempurballongen</h2>
+            <p>Vill du hänga med på en exklusiv resa med vår ballong? Eller vill du ba ha håll koll på vad vi gör? :)</p>
+          </div>
+          <form method="POST" action="/subscribe" class="Form">
+            <label class="u-block u-spaceB1">
+              <span class="u-hiddenVisually">${text`Enter your e-mail address`}</span>
+              ${input({ type: 'email', placeholder: text`Enter your e-mail address` })}
+            </label>
+            <br>
+            ${button({ type: 'submit', class: 'Button--invert', text: text`Send` })}
+          </form>
+        </div>
+      </div>
       <!-- /slice -->
     </main>
   `

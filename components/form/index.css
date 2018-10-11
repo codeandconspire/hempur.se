@@ -1,0 +1,20 @@
+@import "../base";
+
+/** @define Form */
+.Form {
+  text-align: center;
+}
+
+.Form-input {
+  display: inline-block;
+  padding: 1em 1em 0.8em;
+  border: 2px solid currentColor;
+  color: rgb(var(--default-color));
+  background-color: rgb(var(--default-background-color));
+  border-radius: 2em;
+  text-align: left;
+}
+
+.Form-input::placeholder {
+  color: currentColor;
+}
