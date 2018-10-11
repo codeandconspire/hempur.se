@@ -11,18 +11,8 @@
   background-size: 100% 100%;
 }
 
-.Welcome-heading {
-  font-weight: bold;
-  font-size: 3.5rem;
+.Welcome-body {
   text-align: left;
-  letter-spacing: var(--heading-letter-spacing);
-  line-height: var(--heading-line-height);
-}
-
-.Welcome-subheading {
-  display: block;
-  margin-top: 1rem;
-  font-size: 1rem;
 }
 
 .Welcome-image {

@@ -24,6 +24,11 @@
   margin-bottom: 0 !important;
 }
 
+.Text-stack {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
 /**
  * Inline elements
  */
@@ -164,7 +169,7 @@
 .Text h1,
 .Text .Text-h1 {
   font-size: 3.5em;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .Text h2,
