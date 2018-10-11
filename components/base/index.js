@@ -1,6 +1,5 @@
 var fs = require('fs')
 var path = require('path')
-var assert = require('assert')
 var common = require('./lang.json')
 
 // initialize translation utility with given language file

@@ -1,7 +1,6 @@
 module.exports = navigation
 
 function navigation (state, emitter) {
-
   emitter.on('pushState', function () {
     window.requestAnimationFrame(function () {
       window.scrollTo(0, 0)
