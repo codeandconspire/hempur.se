@@ -1,4 +1,14 @@
 @import "../base";
 
 /** @define Logo */
-.Logo {}
+.Logo {
+  width: 90px;
+  height: 39px;
+}
+
+@media (min-width: 1000px) {
+  .Logo {
+    width: 118px;
+    height: 51px;
+  }
+}
