@@ -39,7 +39,7 @@
   margin-bottom: 0.45em;
 }
 
-@media (min-width: 1000px) {
+@media (max-width: 1000px) {
   .Menu--column {
     flex-direction: column;
     margin: 0;
@@ -52,4 +52,9 @@
 
 .Menu--row {
   flex-direction: row;
+}
+
+.Menu--right {
+  align-items: flex-end;
+  justify-content: flex-end;
 }

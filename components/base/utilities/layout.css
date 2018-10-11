@@ -79,6 +79,16 @@
 }
 
 /**
+ * Center content
+ */
+
+.u-center {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/**
  * Centered page container
  */
 

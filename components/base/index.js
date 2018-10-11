@@ -3,20 +3,6 @@ var path = require('path')
 var assert = require('assert')
 var common = require('./lang.json')
 
-if (typeof window !== 'undefined') {
-  require('smoothscroll-polyfill').polyfill()
-  let scrollIntoView = window.Element.prototype.scrollIntoView
-  window.Element.prototype.scrollIntoView = function (opts) {
-    if (typeof opts === 'boolean') {
-      if (opts) opts = { block: 'start', inline: 'nearest' }
-      else opts = { block: 'end', inline: 'nearest' }
-    }
-    opts = opts || {}
-    opts.behavior = opts.behavior || 'smooth'
-    return scrollIntoView.call(this, opts)
-  }
-}
-
 // initialize translation utility with given language file
 // obj -> str
 exports.i18n = i18n

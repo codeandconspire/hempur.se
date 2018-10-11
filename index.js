@@ -19,6 +19,7 @@ app.use(require('./stores/prismic')({
 app.use(require('./stores/meta'))
 
 app.route('/', View.create(() => import('./views/home')))
+app.route('*', require('./views/404'))
 
 try {
   module.exports = View.mount(app, 'body')
