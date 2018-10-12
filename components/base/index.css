@@ -19,9 +19,10 @@
 
   --color-paper: 231, 200, 167;
   --color-paper-light: 245, 218, 189;
+  --color-gray: 182, 182, 182;
 
   --focus-ring-width: 0.2rem;
-  --focus-ring-color: var(--color-gray-dark);
+  --focus-ring-color: var(--default-color);
 
   --max-width: 1800px;
 

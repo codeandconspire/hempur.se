@@ -14,12 +14,8 @@
 .u-bgBlack { --current-background: 0, 0, 0 !important; }
 .u-colorBlack { --current-color: 0, 0, 0 !important; }
 
-.u-bgGrayLight { --current-background: var(--color-gray-light) !important; }
-.u-colorGrayLight { --current-color: var(--color-gray-light) !important; }
 .u-bgGray { --current-background: var(--color-gray) !important; }
 .u-colorGray { --current-color: var(--color-gray) !important; }
-.u-bgGrayDark { --current-background: var(--color-gray-dark) !important; }
-.u-colorGrayDark { --current-color: var(--color-gray-dark) !important; }
 
 .u-colorPaper { --current-color: var(--color-paper) !important; }
 .u-bgPaper { --current-color: var(--color-paper) !important; }

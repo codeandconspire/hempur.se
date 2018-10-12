@@ -1,0 +1,43 @@
+@import "../base";
+
+/** @define Inventory */
+.Inventory {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.Inventory-label {
+  padding-right: 1.5em;
+}
+
+.Inventory-label::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  transform: translate(0.5em, 1.05em);
+  background-image: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%223%22%20height%3D%222%22%20viewBox%3D%220%200%203%202%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%20%20%20%20%3Cpath%20stroke%3D%22%23B6B6B6%22%20stroke-dasharray%3D%221%202%22%20d%3D%22M0%201h3%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E);
+  background-repeat: repeat;
+}
+
+.Inventory-value {
+  font-weight: bold;
+  display: block;
+  position: relative;
+  background-color: rgb(var(--current-background));
+}
+
+@supports (display: grid) {
+  .Inventory-value {
+    padding-left: 0.5em;
+    margin: 0 0 1em;
+  }
+
+  .Inventory:last-child {
+    margin-bottom: 0;
+  }
+}
