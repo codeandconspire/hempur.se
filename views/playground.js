@@ -14,7 +14,36 @@ function playground (state, emit) {
           <p><br/>Kontakta oss här</p>
           <h4>hej@hempur.se <br>+46 701 234 567</h4>
           <h3>Vanliga frågor</h3>
+          <details>
+            <summary>Känns det som vanligt papper?</summary>
+            A keyboard.
+          </details>
+          <details>
+            <summary>Absorberar det bra?</summary>
+            A keyboard.
+          </details>
+          <details>
+            <summary>Hur många bambuträd går åt?</summary>
+            A keyboard.
+          </details>
+          <details>
+            <summary>Hur kan ni vara säkra på att det är bättre med bambu än träd?</summary>
+            A keyboard.
+          </details>
+
           <h3>Om bambu</h3>
+          <details>
+            <summary>Är det verkligen hållbart?</summary>
+            A keyboard.
+          </details>
+          <details>
+            <summary>Hur kan ni vara säkra på att det är bättre med bambu än träd?</summary>
+            A keyboard.
+          </details>
+          <details>
+            <summary>Vad är grejen med bambu?</summary>
+            A keyboard.
+          </details>
         </div>
       </article>
     </main>

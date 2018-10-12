@@ -131,6 +131,32 @@
 }
 
 /**
+ * Details – Summary
+ */
+
+.Text summary {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  user-select: none;
+}
+
+.Text summary::-webkit-details-marker {
+  display: none;
+}
+
+.Text summary::after {
+  content: ">"; 
+  flex: 0 0 auto;
+  transition: transform 100ms var(--ease);
+  transform-origin: center center;
+}
+
+.Text details[open] summary::after {
+  transform: rotate(90deg);
+}
+
+/**
  * 1. Maintain 16/9 aspect ratio for embedded content
  */
 
