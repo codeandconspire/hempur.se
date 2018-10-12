@@ -1,11 +1,18 @@
 module.exports = navigation
 
 function navigation (state, emitter) {
-  emitter.on('pushState', function () {
-    window.requestAnimationFrame(function () {
-      window.scrollTo(0, 0)
-    })
+  var loading = 0
+  emitter.on('choo-lazy-view:fetch', function () {
+    loading++
   })
+  emitter.on('choo-lazy-view:done', function () {
+    loading--
+    if (loading === 0) {
+      emitter.once('render', scrollToTop)
+    }
+  })
+
+  emitter.on('pushState', scrollToTop)
 
   emitter.on('DOMContentLoaded', function () {
     window.addEventListener('click', function (event) {
@@ -18,4 +25,10 @@ function navigation (state, emitter) {
       }
     }, true)
   })
+
+  function scrollToTop () {
+    window.requestAnimationFrame(function () {
+      if (loading === 0) window.scrollTo(0, 0)
+    })
+  }
 }
