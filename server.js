@@ -1,3 +1,5 @@
+if (!process.env.NOW) require('dotenv/config')
+
 var url = require('url')
 var jalla = require('jalla')
 var dedent = require('dedent')
