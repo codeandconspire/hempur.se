@@ -39,7 +39,6 @@
 }
 
 .u-textHeading {
-  font-family: var(--heading-font-family) !important;
   line-height: var(--heading-line-height) !important;
   letter-spacing: var(--heading-letter-spacing) !important;
   font-weight: bold;

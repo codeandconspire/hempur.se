@@ -187,7 +187,6 @@
   margin: 0.6em 0 0.8em;
   color: rgb(var(--current-color));
   font-weight: bold;
-  font-family: var(--heading-font-family);
   line-height: var(--heading-line-height);
   letter-spacing: var(--heading-letter-spacing);
 }
@@ -238,17 +237,17 @@
   .Text .Text-h1 {
     font-size: 4.5em;
   }
-  
+
   .Text h3,
   .Text .Text-h3 {
     font-size: 2.4em;
   }
-  
+
   .Text h4,
   .Text .Text-h4 {
     font-size: 1.6em;
   }
-  
+
   .Text h5,
   .Text .Text-h5,
   .Text .Text-label {

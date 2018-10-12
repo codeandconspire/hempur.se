@@ -33,7 +33,7 @@ function home (state, emit) {
         </div>
       </div>
       <div class="u-textCenter u-spaceV6">
-        ${button({ class: 'Button--invert', href: '/toa-6-pack', text: 'All nördig info' })}
+        ${button({ class: 'Button--invert', href: '/produkter/toa-6-pack', text: 'All nördig info' })}
       </div>
       <!-- /slice -->
       <!-- slice -->

@@ -19,6 +19,7 @@ app.use(require('./stores/prismic')({
 app.use(require('./stores/meta'))
 
 app.route('/', View.create(() => import('./views/home')))
+app.route('/produkter/:uid', View.create(() => import('./views/product')))
 app.route('/playground', View.create(() => import('./views/playground')))
 app.route('*', require('./views/404'))
 

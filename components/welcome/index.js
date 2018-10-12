@@ -20,7 +20,7 @@ function welcome (props) {
           </div>
         </div>
         <img class="Welcome-image" width="318" height="256" sizes="(min-width: 1000px) 644px, 100vw" srcset="${srcset(image, [400, 600, 900, [1200, 'q_50']], { type: 'upload' })}" src="/media/upload/q_auto,w_644/${image}" alt="${text`Picture of Hempur toilet paper 6-pack`}">
-        ${button({ href: '/toa-6-pack', text: 'Produktinfo' })}
+        ${button({ href: '/produkter/toa-6-pack', text: 'Produktinfo' })}
       </div>
     </div>
   `

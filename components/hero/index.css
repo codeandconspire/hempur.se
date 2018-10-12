@@ -1,0 +1,31 @@
+@import "../base";
+
+/** @define Hero */
+.Hero {
+  display: flex;
+  flex-direction: column;
+  padding-top: 6rem;
+  background-color: rgb(var(--color-paper));
+}
+
+.Hero::before,
+.Hero::after {
+  content: "";
+  flex: 0 0 10vh;
+  max-height: 3rem;
+}
+
+.Hero-heading {
+  font-size: 3rem;
+  line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-letter-spacing);
+  font-weight: bold;
+}
+
+.Hero-subheading {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}

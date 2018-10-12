@@ -27,6 +27,12 @@ app.use(get('/robots.txt', function (ctx, next) {
   `
 }))
 
+// redirect non-exiting product listing page
+app.use(get('/produkter', function (ctx, next) {
+  ctx.status = 302
+  ctx.redirect('/')
+}))
+
 // add webhook for prismic updates
 app.use(post('/prismic-hook', compose([body(), function (ctx) {
   var secret = ctx.request.body && ctx.request.body.secret
