@@ -22,11 +22,11 @@ function prismicStore (opts) {
       cache.clear()
     }
 
-    if (state.docs) {
-      assert(typeof state.docs === 'object', 'choo-prismic: state.docs should be type object')
-      var cachekeys = Object.keys(state.docs)
+    if (state.prismic) {
+      assert(typeof state.prismic === 'object', 'choo-prismic: state.prismic should be type object')
+      var cachekeys = Object.keys(state.prismic)
       for (var i = 0, len = cachekeys.length, val; i < len; i++) {
-        val = state.docs[cachekeys[i]]
+        val = state.prismic[cachekeys[i]]
         if (val.status) {
           // a status property indicates an error response
           val = Object.assign(new Error(), {
@@ -144,7 +144,7 @@ function prismicStore (opts) {
       return opts.resolve(doc)
     }
 
-    state.docs = Object.create({
+    state.prismic = Object.create({
       get: get,
       cache: cache,
       resolve: resolve,

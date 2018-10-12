@@ -20,8 +20,11 @@ app.use(require('./stores/meta'))
 
 app.route('/', View.create(() => import('./views/home')))
 app.route('/produkter/:uid', View.create(() => import('./views/product')))
-app.route('/playground', View.create(() => import('./views/playground')))
-app.route('*', require('./views/404'))
+app.route('/:uid', View.create(() => import('./views/page')))
+
+if (process.env.NODE_ENV === 'development') {
+  app.route('/playground', View.create(() => import('./views/playground')))
+}
 
 try {
   module.exports = View.mount(app, 'body')
