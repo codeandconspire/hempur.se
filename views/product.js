@@ -1,6 +1,7 @@
 var html = require('choo/html')
 var hero = require('../components/hero')
 var float = require('../components/float')
+var button = require('../components/button')
 var inventory = require('../components/inventory')
 var { i18n, srcset } = require('../components/base')
 
@@ -50,6 +51,19 @@ function product (state, emit) {
             </ul>
           </div>
         </div>
+        <!-- slice -->
+        <div class="u-spaceT4 u-nbfc u-bgPaper u-colorPaperLight u-bgGradient">
+          <div class="u-spaceV6 u-colorDefault">
+            <div class="u-container u-textCenter ">
+              <div class="Text u-sizeFull u-spaceB6">
+                <strong class="Text-label">Frågor & svar</strong>
+                <h2 class="Text-h1 u-spaceT3">Få svar på dina frågor</h2>
+              </div>
+              ${button({ href: '/faq', text: 'Visa frågor & svar' })}
+            </div>
+          </div>
+        </div>
+        <!-- /slice -->
       </div>
     </main>
   `

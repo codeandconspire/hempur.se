@@ -13,11 +13,17 @@
 .u-colorWhite { --current-color: 255, 255, 255 !important; }
 .u-bgBlack { --current-background: 0, 0, 0 !important; }
 .u-colorBlack { --current-color: 0, 0, 0 !important; }
+.u-colorDefault { --current-color: var(--default-color) !important; }
+.u-bgDefault { --current-background: var(--default-background-color) !important; }
 
 .u-bgGray { --current-background: var(--color-gray) !important; }
 .u-colorGray { --current-color: var(--color-gray) !important; }
 
 .u-colorPaper { --current-color: var(--color-paper) !important; }
-.u-bgPaper { --current-color: var(--color-paper) !important; }
+.u-bgPaper { --current-background: var(--color-paper) !important; }
 .u-colorPaperLight { --current-color: var(--color-paper-light) !important; }
-.u-bgPaperLight { --current-color: var(--color-paper-light) !important; }
+.u-bgPaperLight { --current-background: var(--color-paper-light) !important; }
+
+.u-bgGradient {
+  background-image: linear-gradient(rgb(var(--current-background)), rgb(var(--current-color))) !important;
+}
