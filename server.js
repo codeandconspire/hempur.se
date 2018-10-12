@@ -36,7 +36,7 @@ app.use(get('/produkter', function (ctx, next) {
 // add webhook for prismic updates
 app.use(post('/prismic-hook', compose([body(), function (ctx) {
   var secret = ctx.request.body && ctx.request.body.secret
-  ctx.assert(secret === process.env.PRISMIC_VERDENSMAALENE_SECRET, 403, 'Secret mismatch')
+  ctx.assert(secret === process.env.PRISMIC_HEMPUR_SECRET, 403, 'Secret mismatch')
   return new Promise(function (resolve, reject) {
     purge(function (err, response) {
       if (err) return reject(err)
