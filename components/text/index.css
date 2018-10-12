@@ -221,6 +221,7 @@
 .Text .Text-h5,
 .Text .Text-label {
   font-size: 1rem;
+  font-weight: bold;
   text-transform: uppercase;
   line-height: inherit;
   letter-spacing: 0.06em;

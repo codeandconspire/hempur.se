@@ -6,8 +6,10 @@ function hero (props) {
   return html`
     <div class="Hero">
       <div class="u-container">
-        <small class="Hero-subheading">${props.subheading}</small>
-        <h1 class="Hero-heading">${props.heading}</h1>
+        <div class="Text">
+          <small class="Text-label">${props.subheading}</small>
+          <h1>${props.heading}</h1>
+        </div>
       </div>
     </div>
   `
