@@ -18,17 +18,17 @@ function home (state, emit) {
       <div class="Text u-textCenter u-spaceT6">
         <div class="u-spaceV4 u-spaceH4">
           <img width="135" height="76" src="https://via.placeholder.com/135x76" alt="">
-          <h2 class="Text-h4 u-spaceT0">Universums mjukaste</h2>
+          <h2 class="Text-h3 u-spaceT0">Universums mjukaste</h2>
           <p>Visste du att bambuträd kan växa upp till en meter om dagen och är en av världens mest förnybara växter?</p>
         </div>
         <div class="u-spaceV4 u-spaceH4">
           <img width="135" height="76" src="https://via.placeholder.com/135x76" alt="">
-          <h2 class="Text-h4 u-spaceT0">Universums mjukaste</h2>
+          <h2 class="Text-h3 u-spaceT0">Universums mjukaste</h2>
           <p>Visste du att bambuträd kan växa upp till en meter om dagen och är en av världens mest förnybara växter?</p>
         </div>
         <div class="u-spaceV4 u-spaceH4">
           <img width="135" height="76" src="https://via.placeholder.com/135x76" alt="">
-          <h2 class="Text-h4 u-spaceT0">Universums mjukaste</h2>
+          <h2 class="Text-h3 u-spaceT0">Universums mjukaste</h2>
           <p>Visste du att bambuträd kan växa upp till en meter om dagen och är en av världens mest förnybara växter?</p>
         </div>
       </div>
@@ -65,7 +65,7 @@ function home (state, emit) {
       <div class="u-spaceV8">
         <div class="u-container">
           <div class="Text u-textCenter u-spaceB4">
-            <h2 class="Text-h4">Tävla om en resa med Hempurballongen</h2>
+            <h2 class="Text-h3">Tävla om en resa med Hempurballongen</h2>
             <p>Vill du hänga med på en exklusiv resa med vår ballong? Eller vill du ba ha håll koll på vad vi gör? :)</p>
           </div>
           <form method="POST" action="/subscribe" class="Form">
