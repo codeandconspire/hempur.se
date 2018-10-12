@@ -1,0 +1,8 @@
+{
+  "name": "Hempur",
+  "short_name": "Hempur",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#faf5f3",
+  "theme_color": "#faf5f3"
+}
