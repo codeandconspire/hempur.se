@@ -80,22 +80,28 @@ function home (state, emit) {
       </div>
       <!-- /slice -->
       <!-- slice -->
-      <div class="u-container u-spaceV8">
-        ${/* eslint-disable indent */
-          instagram({
-            title: 'skitnajs',
-            images: [{
-              alt: 'Ha en gudomlig dag allihopa önskar vi från Hempur. ❤️🧘🏼‍♂️🌏🎋',
-              url: 'https://scontent-ort2-1.cdninstagram.com/vp/f30d4ca0c3609d1244e1141aeca6e453/5C462433/t51.2885-15/sh0.08/e35/p640x640/42004132_333072920608887_6477531592628633600_n.jpg'
-            }, {
-              alt: 'Ha en gudomlig dag allihopa önskar vi från Hempur. ❤️🧘🏼‍♂️🌏🎋',
-              url: 'https://scontent-ort2-1.cdninstagram.com/vp/f30d4ca0c3609d1244e1141aeca6e453/5C462433/t51.2885-15/sh0.08/e35/p640x640/42004132_333072920608887_6477531592628633600_n.jpg'
-            }, {
-              alt: 'Ha en gudomlig dag allihopa önskar vi från Hempur. ❤️🧘🏼‍♂️🌏🎋',
-              url: 'https://scontent-ort2-1.cdninstagram.com/vp/f30d4ca0c3609d1244e1141aeca6e453/5C462433/t51.2885-15/sh0.08/e35/p640x640/42004132_333072920608887_6477531592628633600_n.jpg'
-            }]
-          })
-        /* eslint-enable indent */}
+      <div class="u-nbfc">
+        <div class="u-container u-spaceV8">
+          ${/* eslint-disable indent */
+            instagram({
+              title: 'skitnajs',
+              href: 'https://www.instagram.com/hempurofficial',
+              images: [{
+                href: 'https://www.instagram.com',
+                alt: 'Ha en gudomlig dag allihopa önskar vi från Hempur. ❤️🧘🏼‍♂️🌏🎋',
+                url: 'https://scontent-ort2-1.cdninstagram.com/vp/f30d4ca0c3609d1244e1141aeca6e453/5C462433/t51.2885-15/sh0.08/e35/p640x640/42004132_333072920608887_6477531592628633600_n.jpg'
+              }, {
+                href: 'https://www.instagram.com',
+                alt: 'Ha en gudomlig dag allihopa önskar vi från Hempur. ❤️🧘🏼‍♂️🌏🎋',
+                url: 'https://scontent-ort2-1.cdninstagram.com/vp/f30d4ca0c3609d1244e1141aeca6e453/5C462433/t51.2885-15/sh0.08/e35/p640x640/42004132_333072920608887_6477531592628633600_n.jpg'
+              }, {
+                href: 'https://www.instagram.com',
+                alt: 'Ha en gudomlig dag allihopa önskar vi från Hempur. ❤️🧘🏼‍♂️🌏🎋',
+                url: 'https://scontent-ort2-1.cdninstagram.com/vp/f30d4ca0c3609d1244e1141aeca6e453/5C462433/t51.2885-15/sh0.08/e35/p640x640/42004132_333072920608887_6477531592628633600_n.jpg'
+              }]
+            })
+          /* eslint-enable indent */}
+        </div>
       </div>
       <!-- /slice -->
     </main>
