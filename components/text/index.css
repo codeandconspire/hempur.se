@@ -78,6 +78,25 @@
   border-radius: 0.3rem;
 }
 
+.Text blockquote {
+  font-size: 2em;
+  font-weight: bold;
+  line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+.Text blockquote::after {
+  content: "";
+  display: block;
+  margin-top: 1em;
+  width: 4px;
+  height: 50px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: currentColor;
+}
+
 /**
  * Lists
  */
@@ -146,7 +165,7 @@
 }
 
 .Text summary::after {
-  content: ">"; 
+  content: ">";
   flex: 0 0 auto;
   transition: transform 100ms var(--ease);
   transform-origin: center center;
@@ -189,6 +208,22 @@
   font-weight: bold;
   line-height: var(--heading-line-height);
   letter-spacing: var(--heading-letter-spacing);
+}
+
+.Text h1 a,
+.Text h2 a,
+.Text h3 a,
+.Text h4 a,
+.Text h5 a,
+.Text h6 a,
+.Text .Text-h1 a,
+.Text .Text-h2 a,
+.Text .Text-h3 a,
+.Text .Text-h4 a,
+.Text .Text-h5 a,
+.Text .Text-h6 a {
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .Text h1,

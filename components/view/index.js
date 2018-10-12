@@ -34,13 +34,13 @@ View.wrap = function (view) {
         <header>
           <nav class="View-header u-container">
             <a href="/" title="${text`Go to start page`}">${logo()}</a>
-            ${menu([{ href: '/faq', text: 'Frågor & svar' }, { href: '/kontakt', text: 'Kontakt' }], { direction: 'row' })}
+            ${menu([{ href: '/fragor-och-svar', text: 'Frågor & svar' }, { href: '/kontakt', text: 'Kontakt' }], { direction: 'row' })}
           </nav>
         </header>
         ${children}
         <footer class="View-footer">
           <div class="u-container">
-            ${menu([{ href: '/faq', text: 'Frågor & svar' }, { href: '/kontakt', text: 'Kontakt' }], { align: 'right', direction: 'column' })}
+            ${menu([{ href: '/fragor-och-svar', text: 'Frågor & svar' }, { href: '/kontakt', text: 'Kontakt' }], { align: 'right', direction: 'column' })}
             <hr class="View-divider">
             <div class="View-credits">
               <a href="/" title="${text`Back to start page`}">${logo()}</a>
