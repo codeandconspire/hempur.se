@@ -34,17 +34,12 @@ app.use(get('/produkter', function (ctx, next) {
 }))
 
 // add webhook for prismic updates
-app.use(post('/prismic-hook', compose([body(), function (ctx) {
+app.use(post('/prismic-hook', compose([body(), async function (ctx) {
   var secret = ctx.request.body && ctx.request.body.secret
   ctx.assert(secret === process.env.PRISMIC_HEMPUR_SECRET, 403, 'Secret mismatch')
-  return new Promise(function (resolve, reject) {
-    purge(function (err, response) {
-      if (err) return reject(err)
-      ctx.type = 'application/json'
-      ctx.body = {}
-      resolve()
-    })
-  })
+  await purge()
+  ctx.type = 'application/json'
+  ctx.body = {}
 }])))
 
 // set preview cookie
@@ -92,9 +87,8 @@ app.use(function (ctx, next) {
 })
 
 if (process.env.NOW && app.env === 'production') {
-  purge(['/sw.js'], function (err) {
-    if (err) throw err
-    start()
+  app.once('bundle:script', function () {
+    purge(['/sw.js']).then(start)
   })
 } else {
   start()
