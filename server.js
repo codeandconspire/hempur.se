@@ -19,7 +19,7 @@ app.use(require('./lib/cloudinary-proxy'))
 
 // disallow robots anywhere but live URL
 app.use(get('/robots.txt', function (ctx, next) {
-  // if (ctx.host === 'dk.globalgoals.org') return next()
+  if (ctx.host === 'hempur.se') return next()
   ctx.type = 'text/plain'
   ctx.body = dedent`
     User-agent: *

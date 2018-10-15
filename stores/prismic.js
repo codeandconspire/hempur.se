@@ -155,7 +155,7 @@ function prismicStore (opts) {
       toJSON () {
         var json = {}
         for (let i = 0, value; i < cache.keys.length; i++) {
-          value = cache.get(cache.keys[i])
+          value = Object.assign({ toJSON: prunagram }, cache.get(cache.keys[i]))
           // guard against unfinshed promises being stringified as empty object
           if (!(value instanceof Promise)) json[cache.keys[i]] = value
         }
@@ -163,6 +163,33 @@ function prismicStore (opts) {
       }
     })
   }
+}
+
+// remove borked fields from instagram embeds
+// () -> obj
+function prunagram () {
+  return Object.assign({}, this, {
+    results: this.results.map(function (doc) {
+      if (!doc.data.slices) return doc
+      return Object.assign({}, doc, {
+        data: Object.assign({}, doc.data, {
+          slices: doc.data.slices.map(function (slice) {
+            if (slice.slice_type !== 'instagram') return slice
+            return Object.assign({}, slice, {
+              items: slice.items.map(function (item) {
+                return Object.assign({}, item, {
+                  embed: Object.assign({}, item.embed, {
+                    title: null,
+                    html: null
+                  })
+                })
+              })
+            })
+          })
+        })
+      })
+    })
+  })
 }
 
 // pluck out first document from result
