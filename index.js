@@ -13,7 +13,6 @@ app.use(require('choo-service-worker')('/sw.js'))
 app.use(require('./stores/navigation'))
 app.use(require('./stores/prismic')({
   repository: REPOSITORY,
-  middleware: require('./lib/prismic-middleware'),
   resolve: require('./lib/resolve')
 }))
 app.use(require('./stores/meta'))
