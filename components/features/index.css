@@ -11,6 +11,7 @@
 @media (min-width: 1000px) {
   .Features {
     flex-direction: row;
+    align-items: baseline;
   }
 
   .Features-item {
