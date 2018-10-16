@@ -39,6 +39,7 @@
 .View-footer {
   --current-color: var(--default-background-color);
   --current-background: var(--default-color);
+  --focus-ring-color: var(--default-background-color);
   padding: 3rem 0 2.5rem;
   color: rgb(var(--current-color));
   background-color: rgb(var(--current-background));
