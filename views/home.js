@@ -5,6 +5,7 @@ var embed = require('../components/embed')
 var button = require('../components/button')
 var { input } = require('../components/form')
 var welcome = require('../components/welcome')
+var features = require('../components/features')
 var instagram = require('../components/instagram')
 var { i18n, srcset } = require('../components/base')
 
@@ -41,13 +42,13 @@ function home (state, emit) {
       switch (slice.slice_type) {
         case 'features': return html`
           <div class="u-spaceT6">
-            ${slice.items.map((item) => html`
+            ${features(slice.items.map((item) => html`
               <div class="Text u-textCenter u-spaceV4 u-spaceH4">
                 <img width="135" height="76" sizes="135px" srcset="${srcset(item.image.url, [150, 300], { aspect: 76 / 135 })}" src="/media/fetch/q_auto,w_135,h_76,c_fill/${item.image.url}" alt="${item.image.alt || asText(item.heading)}">
                 <h2 class="Text-h3 u-spaceT0">${asText(item.heading)}</h2>
                 ${asElement(item.text)}
               </div>
-            `)}
+            `))}
             <div class="u-textCenter u-spaceV6">
               ${button({ class: 'Button--invert', href: state.prismic.resolve(slice.primary.link), text: slice.primary.link_text })}
             </div>
