@@ -12,7 +12,7 @@ function page (state, emit) {
     if (err) throw err
     if (!doc) {
       return html`
-        <main class="View-main">
+        <main class="View-main u-spaceB4">
           <div class="u-container u-spaceB8">
             <div class="Text Text--center">
               <h1 class="Text-label u-spaceB4"><span class="u-loading">${text`Loading`}</span></h1>
@@ -33,7 +33,7 @@ function page (state, emit) {
     })
 
     return html`
-      <main class="View-main">
+      <main class="View-main u-spaceB6">
         <div class="u-container">
           <div class="Text Text--center">
             <h1 class="Text-label u-spaceB4">${title}</h1>
@@ -59,7 +59,7 @@ function page (state, emit) {
       `
       case 'accordion': return html`
         <div class="u-container u-spaceV6">
-          <div class="Text">
+          <div class="Text Text--center">
             <h2>${asText(slice.primary.heading)}</h2>
             ${slice.items.map((item) => html`
               <details>

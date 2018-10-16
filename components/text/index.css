@@ -161,6 +161,7 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-width: 0 0 1px 0;
   cursor: default;
+  outline: 0;
 }
 
 .Text details:first-of-type {
@@ -173,6 +174,7 @@
   list-style: none;
   user-select: none;
   padding: 1.4rem 0;
+  outline: 0;
 }
 
 .Text summary::-webkit-details-marker {
