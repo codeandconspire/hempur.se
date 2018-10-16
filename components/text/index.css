@@ -10,6 +10,10 @@
   margin-right: auto;
 }
 
+.Text--muted {
+  color: rgba(var(--default-color), 0.7);
+}
+
 .Text--large,
 .Text-large {
   font-size: 1.125rem;
@@ -125,7 +129,7 @@
   position: absolute;
   left: 0;
   font-weight: bold;
-  color: var(--color-theme)
+  color: var(--color-theme);
 }
 
 .Text li + li {
@@ -152,11 +156,23 @@
  * Details – Summary
  */
 
+.Text details {
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-width: 0 0 1px 0;
+  cursor: default;
+}
+
+.Text details:first-of-type {
+  border-top-width: 1px;
+}
+
 .Text summary {
   display: flex;
   justify-content: space-between;
   list-style: none;
   user-select: none;
+  padding: 1.4rem 0;
 }
 
 .Text summary::-webkit-details-marker {
@@ -172,6 +188,10 @@
 
 .Text details[open] summary::after {
   transform: rotate(90deg);
+}
+
+.Text details[open] {
+  padding-bottom: 1.4rem;
 }
 
 /**
@@ -223,6 +243,7 @@
 .Text .Text-h6 a {
   padding-bottom: 0;
   border-bottom: none;
+  line-height: inherit;
 }
 
 .Text h1,

@@ -56,7 +56,9 @@ function page (state, emit) {
             ${slice.items.map((item) => html`
               <details>
                 <summary>${asText(item.heading)}</summary>
-                ${asElement(item.body)}
+                <div class="Text Text--muted">
+                  ${asElement(item.body)}
+                </div>
               </details>
             `)}
           </div>
