@@ -34,11 +34,11 @@ function home (state, emit) {
     return html`
       <main class="View-main View-main--stack">
         ${welcome({ heading, subheading, link })}
-        ${doc.data.slices.map(asSlice)}
+        ${doc.data.slices.map(fromSlice)}
       </main>
     `
 
-    function asSlice (slice) {
+    function fromSlice (slice) {
       switch (slice.slice_type) {
         case 'features': return html`
           <div class="u-spaceT6">

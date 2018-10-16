@@ -5,6 +5,8 @@
   display: flex;
   flex-direction: column;
   padding-top: 6rem;
+  position: relative;
+  z-index: 0;
   background-color: rgb(var(--color-paper));
 }
 
@@ -13,4 +15,14 @@
   content: "";
   flex: 0 0 10vh;
   max-height: 3rem;
+}
+
+.Hero-background {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
 }

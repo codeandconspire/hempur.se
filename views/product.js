@@ -1,6 +1,9 @@
 var html = require('choo/html')
+var asElement = require('prismic-element')
+var { asText } = require('prismic-richtext')
 var hero = require('../components/hero')
 var float = require('../components/float')
+var embed = require('../components/embed')
 var button = require('../components/button')
 var inventory = require('../components/inventory')
 var { i18n, srcset } = require('../components/base')
@@ -10,61 +13,85 @@ var text = i18n()
 module.exports = product
 
 function product (state, emit) {
-  var image = 'v1539262386/hempur/toapapper-rulle_ih9ndb.png'
-  var attrs = {
-    width: 1018,
-    height: 1244,
-    sizes: '(min-width: 1000px) 563px, 266px',
-    srcset: srcset(image, [300, 500, 900, [1200, 'q_50']], { type: 'upload' }),
-    src: `/media/upload/q_auto,w_266/${image}`,
-    alt: text`Picture of Hempur toilet roll`
-  }
-
-  return html`
-    <main class="View-main View-main--stack">
-      ${hero({ subheading: text`Product`, heading: 'Hempur toa 6-pack' })}
-      <div class="u-nbfc">
-        <div class="u-bgWhite u-bgCurrent u-nbfc">
-          <div class="u-container u-spaceV8">
-            ${/* eslint-disable indent */
-              inventory([
-                { label: 'Antal', value: '6 rullar, 3 lager' },
-                { label: 'Vikt', value: '130 gram' },
-                { label: 'Antal ark per rulle', value: '255 st' },
-                { label: 'Storlek per ark', value: '9,8x11 cm' },
-                { label: 'Längd per rulle', value: '28 meter' },
-                { label: 'Fiberråvara', value: '100% bambu' }
-              ])
-            /* eslint-enable indent */}
-          </div>
-        </div>
-        ${float(attrs)}
-        <div class="u-container u-spaceT3">
-          <div class="Text">
-            <p>Visste du att bambuträd kan växa upp till en meter om dagen och är en av världens mest förnybara växter?</p>
-            <p>Det är en anledning till varför framtidens papper görs av just bambu. Som en gräsväxt mår den bra av att skördas, till skillnad från träd, som dör när de fälls. Dessutom tar det bara 5 år år för bambu att bli fullvuxen, medan ett träd kan ta upp mot 60 år. Det gör bambu till ett mer modernt och hållbart alternativ.</p>
-            <h2>Många fördelar</h2>
-            <ul>
-              <li>Bambu är hållbart på riktigt</li>
-              <li>Det är universums mjukaste papper</li>
-              <li>Inga onödiga tillsatser</li>
-            </ul>
-          </div>
-        </div>
-        <!-- slice -->
-        <div class="u-spaceT4 u-nbfc u-bgPaper u-colorPaperLight u-bgGradient">
-          <div class="u-spaceV6 u-colorDefault">
-            <div class="u-container u-textCenter ">
-              <div class="Text u-sizeFull u-spaceB6">
-                <strong class="Text-label">Frågor & svar</strong>
-                <h2 class="Text-h1 u-spaceT3">Få svar på dina frågor</h2>
-              </div>
-              ${button({ href: '/faq', text: 'Visa frågor & svar' })}
+  return state.prismic.getByUID('product', state.params.uid, function (err, doc) {
+    if (err) throw err
+    if (!doc) {
+      return html`
+        <main class="View-main View-main--stack">
+          ${hero.loading()}
+          <div class="u-nbfc">
+            <div class="u-bgWhite u-bgCurrent" style="height: 100vh;">
             </div>
           </div>
+        </main>
+      `
+    }
+
+    var image = 'v1539262386/hempur/toapapper-rulle_ih9ndb.png'
+    var attrs = {
+      width: 1018,
+      height: 1244,
+      sizes: '(min-width: 1000px) 563px, 266px',
+      srcset: srcset(image, [300, 500, 900, [1200, 'q_50']], { type: 'upload' }),
+      src: `/media/upload/q_auto,w_266/${image}`,
+      alt: text`Picture of Hempur toilet roll`
+    }
+
+    return html`
+      <main class="View-main View-main--stack">
+        ${hero({ subheading: text`Product`, heading: asText(doc.data.title), image: doc.data.image })}
+        <div class="u-nbfc">
+          <div class="u-bgWhite u-bgCurrent u-nbfc">
+            <div class="u-container u-spaceV8">
+              ${inventory(doc.data.attributes)}
+            </div>
+          </div>
+          <div class="u-container u-spaceT3">
+            ${float(attrs)}
+            <div class="Text Text--center u-spaceV8">
+              ${asElement(doc.data.body)}
+            </div>
+          </div>
+          ${doc.data.slices.map(fromSlice)}
+          ${doc.data.follow_up_link_text ? html`
+            <div class="u-spaceT4 u-nbfc u-bgPaper u-colorPaperLight u-bgGradient">
+              <div class="u-spaceV6 u-colorDefault">
+                <div class="u-container u-textCenter ">
+                  <div class="Text u-sizeFull u-spaceB6">
+                    <strong class="Text-label">${doc.data.follow_up_subheading}</strong>
+                    <h2 class="Text-h1 u-spaceT3">${asText(doc.data.follow_up_heading)}</h2>
+                  </div>
+                  ${button({ href: state.prismic.resolve(doc.data.follow_up_link), text: doc.data.follow_up_link_text })}
+                </div>
+              </div>
+            </div>
+          ` : null}
         </div>
-        <!-- /slice -->
-      </div>
-    </main>
-  `
+      </main>
+    `
+  })
+
+  function fromSlice (slice) {
+    switch (slice.slice_type) {
+      case 'text': return html`
+        <div class="u-container u-spaceV8">
+          <div class="Text Text--center">
+            ${asElement(slice.primary.text)}
+          </div>
+        </div>
+      `
+      case 'image': return html`
+        <div class="u-container u-spaceV8">
+          <div class="Text u-sizeFull">
+            <img width="${slice.primary.image.width}" height="${slice.primary.image.height}" sizes="(min-width: 1800px) 1800px, 100vw" srcset="${srcset(slice.primary.image.url, [400, 600, 1000, 1800, [2800, 'q_25'], [3600, 'q_25']])}" src="${slice.primary.image.url}" alt="${slice.primary.image.alt || ''}">
+          </div>
+        </div>
+      `
+      case 'video': return embed({
+        url: slice.primary.embed.embed_url,
+        title: slice.primary.embed.title
+      })
+      default: return null
+    }
+  }
 }

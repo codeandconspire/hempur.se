@@ -2,14 +2,21 @@
 
 /** @define Float */
 .Float {
+  float: right;
   position: relative;
-  top: -15vw;
-  margin-bottom: -15vw;
-  overflow: hidden;
+  top: -125px;
+  text-align: right;
+}
+
+@media (max-width: 999px) {
+  .Float {
+    float: none;
+    top: -65px;
+    margin-bottom: -125px;
+  }
 }
 
 .Float-image {
-  float: right;
   max-width: 100vw;
   position: relative;
   right: -5%;
@@ -18,6 +25,6 @@
 
 @media (min-width: 1000px) {
   .Float-image {
-    left: 0;
+    float: right;
   }
 }
