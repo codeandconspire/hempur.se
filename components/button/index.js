@@ -1,24 +1,20 @@
 var html = require('choo/html')
 var { className } = require('../base')
 
-var ATTRS = [
-  'disabled', 'title', 'title', 'aria-', 'on', 'autofocus', 'formnovalidate'
-]
-
 module.exports = button
 
 function button (props) {
-  var attrs = { href: props.href }
-  var keys = Object.keys(props).filter(isAttribute)
+  var attrs = {}
+  var keys = Object.keys(props)
   for (let i = 0, len = keys.length; i < len; i++) {
-    if (props[keys[i]]) attrs[keys[i]] = props[keys[i]]
+    let key = keys[i]
+    let val = props[key]
+    if (key !== 'text' && key !== 'class') {
+      if (typeof val === 'boolean' && val) val = key
+      if (val) attrs[key] = val
+    }
   }
   attrs.class = className('Button', { [props.class]: props.class })
   if (attrs.href) return html`<a ${attrs}>${props.text}</a>`
   return html`<button ${attrs}>${props.text}</button>`
-}
-
-// check if str is applicable element attribute
-function isAttribute (str) {
-  return !!ATTRS.find((value) => str.indexOf(value) === 0)
 }

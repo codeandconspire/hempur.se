@@ -55,7 +55,10 @@ self.addEventListener('fetch', function onfetch (event) {
       if (!response.ok) {
         if (fallback) return fallback
       } else {
-        cache.put(req, response.clone())
+        let type = req.headers.get('Content-Type')
+        if (type && type.toUpperCase() === 'GET') {
+          cache.put(req, response.clone())
+        }
       }
       return response
     })

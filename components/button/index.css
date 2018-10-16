@@ -34,7 +34,16 @@
   opacity: 1;
 }
 
-.Button--invert {
+.Button[disabled] {
+  opacity: 0.6
+}
+
+.Button--invert,
+.Button--invert:hover {
   color: rgb(var(--current-background));
   background-color: rgb(var(--current-color));
+}
+
+.Button--invert::before {
+  background-color: rgb(0, 0, 0);
 }

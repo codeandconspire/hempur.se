@@ -17,6 +17,9 @@ var app = jalla('index.js', { sw: 'sw.js' })
 // proxy cloudinary on-demand-transform API
 app.use(require('./lib/cloudinary-proxy'))
 
+// proxy mailchimp subscriptions
+app.use(require('./lib/mailchimp-proxy'))
+
 // disallow robots anywhere but live URL
 app.use(get('/robots.txt', function (ctx, next) {
   if (ctx.host === 'hempur.se') return next()
