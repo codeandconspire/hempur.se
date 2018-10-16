@@ -16,7 +16,7 @@ function page (state, emit) {
           <div class="u-container u-spaceB8">
             <div class="Text">
               <h1 class="Text-label u-spaceB4"><span class="u-loading">${text`Loading`}</span></h1>
-              <small class="Text-h1"><span class="u-loading">${text`Fetching content`}</span></small>
+              <strong class="Text-h1"><span class="u-loading">${text`Fetching content`}</span></strong>
               <p class="u-spaceT8"><span class="u-loading">${text`This part of the website is being fetched from the internet. If it takes too long – make sure you are connected to the internet.`}</span></p>
             </div>
           </div>
@@ -29,7 +29,7 @@ function page (state, emit) {
         <div class="u-container">
           <div class="Text">
             <h1 class="Text-label u-spaceB4">${asText(doc.data.title)}</h1>
-            <small class="Text-h1">${asText(doc.data.heading)}</small>
+            <strong class="Text-h1">${asText(doc.data.heading)}</strong>
             <p class="u-spaceT8">${asElement(doc.data.description, state.prismic.resolve)}</p>
           </div>
         </div>

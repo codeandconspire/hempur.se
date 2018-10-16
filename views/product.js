@@ -59,7 +59,7 @@ function product (state, emit) {
                 <div class="u-container u-textCenter ">
                   <div class="Text u-sizeFull u-spaceB6">
                     <strong class="Text-label">${doc.data.follow_up_subheading}</strong>
-                    <h2 class="Text-h1 u-spaceT3">${asText(doc.data.follow_up_heading)}</h2>
+                    <h2 class="Text-h1 u-spaceT2">${asText(doc.data.follow_up_heading)}</h2>
                   </div>
                   ${button({ href: state.prismic.resolve(doc.data.follow_up_link), text: doc.data.follow_up_link_text })}
                 </div>

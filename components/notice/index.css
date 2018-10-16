@@ -1,0 +1,19 @@
+@import "../base";
+
+/** @define Notice */
+
+.Notice {
+  position: relative;
+  background: rgb(var(--color-paper-lighter));
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.Notice-link::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

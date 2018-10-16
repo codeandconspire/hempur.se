@@ -5,6 +5,7 @@ var embed = require('../components/embed')
 var button = require('../components/button')
 var { input } = require('../components/form')
 var welcome = require('../components/welcome')
+var notice = require('../components/notice')
 var features = require('../components/features')
 var instagram = require('../components/instagram')
 var { i18n, srcset } = require('../components/base')
@@ -34,6 +35,7 @@ function home (state, emit) {
     return html`
       <main class="View-main View-main--stack">
         ${welcome({ heading, subheading, link })}
+        ${notice({ text: text`Hitta återförsäljare`, link: '/#' })}
         ${doc.data.slices.map(fromSlice)}
       </main>
     `
@@ -41,11 +43,11 @@ function home (state, emit) {
     function fromSlice (slice) {
       switch (slice.slice_type) {
         case 'features': return html`
-          <div class="u-spaceT6">
+          <div class="u-spaceT4">
             ${features(slice.items.map((item) => html`
-              <div class="Text u-textCenter u-spaceV4 u-spaceH4">
-                <img width="135" height="76" sizes="135px" srcset="${srcset(item.image.url, [150, 300], { aspect: 76 / 135 })}" src="/media/fetch/q_auto,w_135,h_76,c_fill/${item.image.url}" alt="${item.image.alt || asText(item.heading)}">
-                <h2 class="Text-h3 u-spaceT0">${asText(item.heading)}</h2>
+              <div class="Text u-textCenter u-spaceT6 u-spaceH4">
+                <img width="150" height="83" sizes="150px" srcset="${srcset(item.image.url, [150, 300], { aspect: 83 / 150 })}" src="/media/fetch/q_auto,w_150,h_83,c_fill/${item.image.url}" alt="${item.image.alt || asText(item.heading)}">
+                <h2 class="Text-h3 u-spaceA0">${asText(item.heading)}</h2>
                 ${asElement(item.text)}
               </div>
             `))}
@@ -80,7 +82,7 @@ function home (state, emit) {
             <div class="u-container">
               <div class="Text u-spaceB6">
                 <strong class="Text-label">${slice.primary.label}</strong>
-                <h2 class="Text-h1 u-spaceT3">${asText(slice.primary.text)}</h2>
+                <h2 class="Text-h1 u-spaceT2">${asText(slice.primary.text)}</h2>
               </div>
               ${button({ class: 'Button--invert', href: state.prismic.resolve(slice.primary.link), text: slice.primary.link_text })}
             </div>
@@ -97,7 +99,7 @@ function home (state, emit) {
 
           return html`
             <div class="u-nbfc u-spaceV8">
-              <div class="u-container">
+              <div class="u-container u-spaceV6">
                 ${instagram({ title: asText(slice.primary.heading), href: 'https://www.instagram.com/hempurofficial', images: items })}
               </div>
             </div>
@@ -115,11 +117,10 @@ function home (state, emit) {
                 </div>
                 <form method="POST" action="https://codeandconspire.us16.list-manage.com/subscribe/post?u=7d6667fe63e208708b9f6ee8f&id=64b0fb1755" class="Form" onsubmit=${onsubmit}>
                   ${slice.primary.ref ? html`<input type="hidden" name="REF" value="${slice.primary.ref}">` : null}
-                  <label class="u-block u-spaceB1">
+                  <label class="u-block u-spaceB2">
                     <span class="u-hiddenVisually">${text`Enter your e-mail address`}</span>
                     ${input({ class: 'js-input', name: 'EMAIL', type: 'email', value: '', placeholder: text`Enter your e-mail address` })}
                   </label>
-                  <br>
                   ${button({ type: 'submit', class: 'Button--invert js-submit', text: text`Send` })}
                 </form>
               </div>
