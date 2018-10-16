@@ -35,7 +35,9 @@
       "PRISMIC_HEMPUR_SECRET": "@prismic-hempur-secret",
       "CLOUDFLARE_HEMPUR_ZONE": "@cloudflare-hempur-zone",
       "CLOUDFLARE_CODEANDCONSPIRE_EMAIL": "@cloudflare-codeandconspire-email",
-      "CLOUDFLARE_CODEANDCONSPIRE_KEY": "@cloudflare-codeandconspire-key"
+      "CLOUDFLARE_CODEANDCONSPIRE_KEY": "@cloudflare-codeandconspire-key",
+      "CLOUDINARY_KEY": "@cloudinary-key",
+      "CLOUDINARY_SECRET": "@cloudinary-secret"
     }
   },
   "standard": {
