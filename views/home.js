@@ -49,7 +49,7 @@ function home (state, emit) {
                 ${asElement(item.text)}
               </div>
             `))}
-            <div class="u-textCenter u-spaceV6">
+            <div class="u-textCenter u-spaceV8">
               ${button({ class: 'Button--invert', href: state.prismic.resolve(slice.primary.link), text: slice.primary.link_text })}
             </div>
           </div>
