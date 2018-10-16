@@ -29,27 +29,32 @@ View.wrap = function (view) {
       children = error(err)
     }
 
-    return html`
-      <body id="app" class="View">
-        <header>
-          <nav class="View-header u-container">
-            <a href="/" title="${text`Go to start page`}">${logo()}</a>
-            ${menu([{ href: '/fragor-och-svar', text: 'Frågor & svar' }, { href: '/kontakt', text: 'Kontakt' }], { direction: 'row' })}
-          </nav>
-        </header>
-        ${children}
-        <footer class="View-footer">
-          <div class="u-container">
-            ${menu([{ href: '/fragor-och-svar', text: 'Frågor & svar' }, { href: '/kontakt', text: 'Kontakt' }], { align: 'right', direction: 'column' })}
-            <hr class="View-divider">
-            <div class="View-credits">
-              <a href="/" title="${text`Back to start page`}">${logo()}</a>
-              © 2018 Hempur AB
+    return state.prismic.getSingle('webpage', function (err, doc) {
+      if (err) throw err
+      if (!doc || state.prefetch) return children
+
+      return html`
+        <body id="app" class="View">
+          <header>
+            <nav class="View-header u-container">
+              <a href="/" title="${text`Go to start page`}">${logo()}</a>
+              ${menu(doc.data.header_menu.map((item) => ({ href: state.prismic.resolve(item.link), text: item.label })), { direction: 'row' })}
+            </nav>
+          </header>
+          ${children}
+          <footer class="View-footer">
+            <div class="u-container">
+              ${menu(doc.data.footer_menu.map((item) => ({ href: state.prismic.resolve(item.link), text: item.label })), { align: 'right', direction: 'column' })}
+              <hr class="View-divider">
+              <div class="View-credits">
+                <a href="/" title="${text`Back to start page`}">${logo()}</a>
+                ${doc.data.copyright}
+              </div>
             </div>
-          </div>
-        </footer>
-        ${player.render(null)}
-      </body>
-    `
+          </footer>
+          ${player.render(null)}
+        </body>
+      `
+    })
   }
 }
