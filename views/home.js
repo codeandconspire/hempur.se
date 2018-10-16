@@ -4,7 +4,7 @@ var { asText } = require('prismic-richtext')
 var embed = require('../components/embed')
 var button = require('../components/button')
 var { input } = require('../components/form')
-var welcome = require('../components/welcome')
+var Welcome = require('../components/welcome')
 var notice = require('../components/notice')
 var features = require('../components/features')
 var instagram = require('../components/instagram')
@@ -20,7 +20,7 @@ function home (state, emit) {
     if (!doc) {
       return html`
         <main class="View-main View-main--stack">
-          ${welcome.loading()}
+          ${Welcome.loading()}
         </main>
       `
     }
@@ -40,7 +40,7 @@ function home (state, emit) {
 
     return html`
       <main class="View-main View-main--stack">
-        ${welcome({ heading, subheading, link })}
+        ${state.cache(Welcome, 'homepage-welcome').render({ heading, subheading, link })}
         ${notice({ text: text`Hitta återförsäljare`, link: '/#' })}
         ${doc.data.slices.map(fromSlice)}
       </main>

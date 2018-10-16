@@ -33,7 +33,17 @@
   left: 50%;
   top: 0;
   z-index: 1;
-  transform: translateX(-50%);
+  opacity: 0;
+  transform: translate(-50%, -25%);
+  animation: View-header--appear 400ms 450ms forwards var(--ease-out);
+  will-change: opacity, transform;
+}
+
+@keyframes View-header--appear {
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0%);
+  }
 }
 
 .View-footer {
