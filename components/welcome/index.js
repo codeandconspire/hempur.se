@@ -52,8 +52,7 @@ module.exports = class Welcome extends Component {
       self.local.loaded = true
       self.rerender()
 
-      var top = offset(el)
-      var max = offset(image) + image.offsetHeight + (image.offsetHeight / 2)
+      var top, max
       var onscroll = nanoraf(function () {
         var scroll = window.scrollY + vh()
         var prev = self.local.inview
@@ -68,6 +67,7 @@ module.exports = class Welcome extends Component {
         max = offset(image) + height + (height / 2)
       })
 
+      onresize()
       onscroll()
       window.addEventListener('scroll', onscroll)
       window.addEventListener('resize', onresize)
