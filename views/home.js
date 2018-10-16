@@ -54,7 +54,7 @@ function home (state, emit) {
           </div>
         `
         case 'partners': {
-          var items = slice.items.map(function (item) {
+          let items = slice.items.map(function (item) {
             var image = html`<img class="u-inlineBlock u-spaceV3 u-spaceH2" width="45" height="45" sizes="45px" srcset="${srcset(item.image.url, [50, 100])}" src="/media/fetch/q_auto,w_45,c_fill/${item.image.url}" alt="${item.image.alt || ''}">`
 
             if (!item.link.url) return image
@@ -85,6 +85,23 @@ function home (state, emit) {
             </div>
           </div>
         `
+        case 'instagram': {
+          let items = slice.items.map(function (item) {
+            return {
+              alt: item.embed.title,
+              href: item.embed.embed_url,
+              url: item.embed.thumbnail_url
+            }
+          })
+
+          return html`
+            <div class="u-nbfc">
+              <div class="u-container u-spaceV8">
+                ${instagram({ title: asText(slice.primary.heading), href: 'https://www.instagram.com/hempurofficial', images: items })}
+              </div>
+            </div>
+          `
+        }
         default: return null
       }
     }

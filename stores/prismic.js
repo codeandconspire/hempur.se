@@ -179,7 +179,7 @@ function prunagram () {
               items: slice.items.map(function (item) {
                 return Object.assign({}, item, {
                   embed: Object.assign({}, item.embed, {
-                    title: null,
+                    title: item.embed.title.replace(/[^\w\såäö.,]/ig, ''),
                     html: null
                   })
                 })

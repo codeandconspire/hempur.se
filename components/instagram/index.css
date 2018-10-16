@@ -12,10 +12,6 @@
   margin-bottom: 2rem;
 }
 
-.Instagram-heading::before {
-  content: '#';
-}
-
 .Instagram-feed {
   display: flex;
   justify-content: center;
