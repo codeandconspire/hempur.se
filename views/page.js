@@ -24,11 +24,19 @@ function page (state, emit) {
       `
     }
 
+    var title = asText(doc.data.title)
+
+    emit('meta', {
+      title: title,
+      description: asText(doc.data.description),
+      'og:image': doc.data.share_image.url
+    })
+
     return html`
       <main class="View-main">
         <div class="u-container">
           <div class="Text">
-            <h1 class="Text-label u-spaceB4">${asText(doc.data.title)}</h1>
+            <h1 class="Text-label u-spaceB4">${title}</h1>
             <strong class="Text-h1">${asText(doc.data.heading)}</strong>
             <p class="u-spaceT8">${asElement(doc.data.description, state.prismic.resolve)}</p>
           </div>

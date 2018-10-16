@@ -32,6 +32,12 @@ function home (state, emit) {
       href: state.prismic.resolve(doc.data.product_link)
     }
 
+    emit('meta', {
+      title: heading,
+      description: asText(doc.data.description),
+      'og:image': doc.data.share_image.url
+    })
+
     return html`
       <main class="View-main View-main--stack">
         ${welcome({ heading, subheading, link })}

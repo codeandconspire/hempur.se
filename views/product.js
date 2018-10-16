@@ -37,9 +37,16 @@ function product (state, emit) {
       alt: text`Picture of Hempur toilet roll`
     }
 
+    var title = asText(doc.data.title)
+    emit('meta', {
+      title: title,
+      description: asText(doc.data.description),
+      'og:image': doc.data.share_image.url || doc.data.image.url
+    })
+
     return html`
       <main class="View-main View-main--stack">
-        ${hero({ subheading: text`Product`, heading: asText(doc.data.title), image: doc.data.image })}
+        ${hero({ subheading: text`Product`, heading: title, image: doc.data.image })}
         <div class="u-nbfc">
           <div class="u-bgWhite u-bgCurrent u-nbfc">
             <div class="u-container u-spaceV8">

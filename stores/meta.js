@@ -11,6 +11,13 @@ function meta (state, emitter) {
     if (next.title && !next['og:title']) tags['og:title'] = next.title
     delete tags.goal
 
+    if (!tags['og:image']) {
+      tags['og:image'] = state.prismic.getSingle('webpage', function (err, doc) {
+        if (err) throw err
+        return doc.data.share_image.url
+      })
+    }
+
     Object.keys(tags).forEach(function (key) {
       state.meta[key] = tags[key].replace(/^\//, state.origin + '/')
       if (typeof window === 'undefined') return
