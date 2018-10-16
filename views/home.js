@@ -33,7 +33,7 @@ function home (state, emit) {
     }
 
     emit('meta', {
-      title: heading,
+      title: 'Hempur',
       description: asText(doc.data.description),
       'og:image': doc.data.share_image.url
     })

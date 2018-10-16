@@ -26,7 +26,7 @@ View.wrap = function (view) {
       var children = view(state, emit)
     } catch (err) {
       emit('error', err)
-      children = error(err)
+      children = error(err, emit)
     }
 
     return state.prismic.getSingle('webpage', function (err, doc) {

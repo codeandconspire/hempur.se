@@ -5,12 +5,15 @@ var text = i18n()
 
 module.exports = error
 
-function error (err) {
+function error (err, emit) {
+  var title = text(err.status === 404 ? 'Oops! Page not found.' : 'Oops! Something went wrong.')
+  emit('meta', { title: title })
+
   return html`
     <main class="View-main u-spaceB8">
       <div class="u-container u-center">
         <div class="Text u-textCenter">
-          <h1>${text(err.status === 404 ? 'Oops! Page not found.' : 'Oops! Something went wrong.')}</h1>
+          <h1>${title}</h1>
           ${err.status === 404 ? html`
             <p>
               ${text`There is no page at this address. Try finding your way using the menu or from` + ' '}

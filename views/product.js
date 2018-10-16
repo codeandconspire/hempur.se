@@ -39,7 +39,7 @@ function product (state, emit) {
 
     var title = asText(doc.data.title)
     emit('meta', {
-      title: title,
+      title: `${title} | Hempur`,
       description: asText(doc.data.description),
       'og:image': doc.data.share_image.url || doc.data.image.url
     })
