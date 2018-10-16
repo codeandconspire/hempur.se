@@ -14,7 +14,7 @@ function page (state, emit) {
       return html`
         <main class="View-main">
           <div class="u-container u-spaceB8">
-            <div class="Text">
+            <div class="Text Text--center">
               <h1 class="Text-label u-spaceB4"><span class="u-loading">${text`Loading`}</span></h1>
               <strong class="Text-h1"><span class="u-loading">${text`Fetching content`}</span></strong>
               <p class="u-spaceT8"><span class="u-loading">${text`This part of the website is being fetched from the internet. If it takes too long – make sure you are connected to the internet.`}</span></p>
@@ -35,7 +35,7 @@ function page (state, emit) {
     return html`
       <main class="View-main">
         <div class="u-container">
-          <div class="Text">
+          <div class="Text Text--center">
             <h1 class="Text-label u-spaceB4">${title}</h1>
             <strong class="Text-h1">${asText(doc.data.heading)}</strong>
             <p class="u-spaceT8">${asElement(doc.data.description, state.prismic.resolve)}</p>
@@ -52,7 +52,7 @@ function page (state, emit) {
     switch (slice.slice_type) {
       case 'text': return html`
         <div class="u-container u-spaceV6">
-          <div class="Text">
+          <div class="Text Text--center">
             ${asElement(slice.primary.text, state.prismic.resolve)}
           </div>
         </div>
@@ -76,12 +76,16 @@ function page (state, emit) {
         let image = slice.primary.image
         if (!image.url) return null
         return html`
-          <img class="u-sizeFull" alt="${image.alt || ''}" sizes="(min-width: 1000px) 300px, 50vw" srcset="${srcset(image.url, [400, 600, 900, 1800, [3600, 'q_50']])}" src="/media/fetch/w_900/${image.url}">
+          <div class="u-container u-spaceV8">
+            <div class="Text u-sizeFull">
+              <img width="${image.width}" height="${image.height}" sizes="(min-width: 1800px) 1800px, 100vw" srcset="${srcset(image.url, [400, 600, 1000, 1800, [2800, 'q_25'], [3600, 'q_25']])}" src="${image.url}" alt="${image.alt || ''}">
+            </div>
+          </div>
         `
       }
       case 'statement': return html`
         <div class="u-container u-spaceV6">
-          <div class="Text u-textCenter">
+          <div class="Text Text--center u-textCenter">
             <blockquote>
               ${asText(slice.primary.text)}
             </blockquote>
