@@ -36,7 +36,7 @@
  * Inline elements
  */
 
-.Text a {
+.Text a:not(.Text-ignore) {
   display: inline-block;
   padding-bottom: 0.2em;
   border-bottom: 1px solid currentColor;
@@ -306,7 +306,7 @@
 
   .Text h3,
   .Text .Text-h3 {
-    font-size: 2.4em;
+    font-size: 1.8em;
   }
 
   .Text h4,

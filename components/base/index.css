@@ -87,12 +87,6 @@
   }
 }
 
-@media (min-width: 1800px) {
-  :root {
-    font-size: 140%;
-  }
-}
-
 *,
 *::before,
 *::after {
