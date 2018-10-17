@@ -168,6 +168,7 @@ function prismicStore (opts) {
 // remove borked fields from instagram embeds
 // () -> obj
 function prunagram () {
+  if (!this.results) return this
   return Object.assign({}, this, {
     results: this.results.map(function (doc) {
       if (!doc.data.slices) return doc
@@ -175,6 +176,7 @@ function prunagram () {
         data: Object.assign({}, doc.data, {
           slices: doc.data.slices.map(function (slice) {
             if (slice.slice_type !== 'instagram') return slice
+            if (!slice.items.length) return slice
             return Object.assign({}, slice, {
               items: slice.items.map(function (item) {
                 return Object.assign({}, item, {
