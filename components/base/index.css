@@ -149,7 +149,8 @@ textarea,
  ol,
  blockquote,
  iframe,
- figure {
+ figure,
+ fieldset {
    font: inherit;
    margin: 0;
    border: 0;

@@ -54,7 +54,7 @@
 
   .Instagram-item:nth-child(3n+2) {
     transform: translateX(-45%);
-    margin-bottom: -54%;
+    margin-bottom: -58%;
   }
 
   .Instagram-item:nth-child(3n+3) {

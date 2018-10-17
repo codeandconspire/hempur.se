@@ -2,7 +2,7 @@ var html = require('choo/html')
 var asElement = require('prismic-element')
 var { asText } = require('prismic-richtext')
 var embed = require('../components/embed')
-var button = require('../components/button')
+var Button = require('../components/button')
 var { input } = require('../components/form')
 var Welcome = require('../components/welcome')
 var notice = require('../components/notice')
@@ -46,22 +46,24 @@ function home (state, emit) {
       </main>
     `
 
-    function fromSlice (slice) {
+    function fromSlice (slice, index) {
       switch (slice.slice_type) {
-        case 'features': return html`
-          <div class="u-container u-spaceT4">
-            ${features(slice.items.map((item) => html`
-              <div class="Text u-textCenter">
-                <img width="150" sizes="150px" srcset="${srcset(item.image.url, [150, 300])}" src="/media/fetch/q_auto,w_150,c_fill/${item.image.url}" alt="${item.image.alt || asText(item.heading)}">
-                <h2 class="Text-h3 u-spaceA0">${asText(item.heading)}</h2>
-                ${asElement(item.text)}
+        case 'features': {
+          return html`
+            <div class="u-container u-spaceT4">
+              ${features(slice.items.map((item) => html`
+                <div class="Text u-textCenter">
+                  <img width="150" sizes="150px" srcset="${srcset(item.image.url, [150, 300])}" src="/media/fetch/q_auto,w_150,c_fill/${item.image.url}" alt="${item.image.alt || asText(item.heading)}">
+                  <h2 class="Text-h3 u-spaceA0">${asText(item.heading)}</h2>
+                  ${asElement(item.text)}
+                </div>
+              `))}
+              <div class="u-textCenter u-spaceB8">
+                ${new Button(`features-button-${index}`).render({ class: 'Button--invert', href: state.prismic.resolve(slice.primary.link), text: slice.primary.link_text })}
               </div>
-            `))}
-            <div class="u-textCenter u-spaceB8">
-              ${button({ class: 'Button--invert', href: state.prismic.resolve(slice.primary.link), text: slice.primary.link_text })}
             </div>
-          </div>
-        `
+          `
+        }
         case 'partners': {
           let items = slice.items.map(function (item) {
             var image = html`<img class="Notice-icon" width="58" height="58" sizes="58px" srcset="${srcset(item.image.url, [50, 100])}" src="/media/fetch/q_auto,w_58,c_fill/${item.image.url}" alt="${item.image.alt || ''}">`
@@ -86,17 +88,19 @@ function home (state, emit) {
           url: slice.primary.embed.embed_url,
           title: slice.primary.embed.title
         })
-        case 'statement': return html`
-          <div class="u-spaceV8">
-            <div class="u-container">
-              <div class="Text Text--center u-spaceB6">
-                <strong class="Text-label">${slice.primary.label}</strong>
-                <h2 class="Text-h1 u-spaceT2">${asText(slice.primary.text)}</h2>
-                ${button({ class: 'Text-ignore Button--invert', href: state.prismic.resolve(slice.primary.link), text: slice.primary.link_text })}
+        case 'statement': {
+          return html`
+            <div class="u-spaceV8">
+              <div class="u-container">
+                <div class="Text Text--center u-spaceB6">
+                  <strong class="Text-label">${slice.primary.label}</strong>
+                  <h2 class="Text-h1 u-spaceT2">${asText(slice.primary.text)}</h2>
+                  ${new Button(`statement-button-${index}`).render({ class: 'Text-ignore Button--invert', href: state.prismic.resolve(slice.primary.link), text: slice.primary.link_text })}
+                </div>
               </div>
             </div>
-          </div>
-        `
+          `
+        }
         case 'instagram': {
           let items = slice.items.map(function (item) {
             return {
@@ -125,12 +129,14 @@ function home (state, emit) {
                   </div>
                 </div>
                 <form method="POST" action="https://codeandconspire.us16.list-manage.com/subscribe/post?u=7d6667fe63e208708b9f6ee8f&id=64b0fb1755" class="Form" onsubmit=${onsubmit}>
-                  ${slice.primary.ref ? html`<input type="hidden" name="REF" value="${slice.primary.ref}">` : null}
-                  <label class="u-block u-spaceB2">
-                    <span class="u-hiddenVisually">${text`Enter your e-mail address`}</span>
-                    ${input({ class: 'js-input', name: 'EMAIL', type: 'email', value: '', placeholder: text`Enter your e-mail address` })}
-                  </label>
-                  ${button({ type: 'submit', class: 'Button--invert js-submit', text: text`Send` })}
+                  <fieldset class="js-fieldset">
+                    ${slice.primary.ref ? html`<input type="hidden" name="REF" value="${slice.primary.ref}">` : null}
+                    <label class="u-block u-spaceB2">
+                      <span class="u-hiddenVisually">${text`Enter your e-mail address`}</span>
+                      ${input({ class: 'js-input', name: 'EMAIL', type: 'email', value: '', placeholder: text`Enter your e-mail address` })}
+                    </label>
+                    ${new Button(`newsletter-button-${index}`).render({ type: 'submit', class: 'Button--invert', text: text`Send` })}
+                  </fieldset>
                 </form>
               </div>
             </div>
@@ -141,10 +147,8 @@ function home (state, emit) {
     }
 
     function onsubmit (event) {
-      var button = this.querySelector('.js-submit')
-      var input = this.querySelector('.js-submit')
-      button.disabled = true
-      input.disabled = true
+      var fieldset = this.querySelector('.js-fieldset')
+      fieldset.disabled = true
       emit('subscribe', new window.FormData(this), this.action)
       event.preventDefault()
     }

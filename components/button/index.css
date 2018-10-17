@@ -3,12 +3,14 @@
 /** @define Button */
 .Button {
   display: inline-block;
+  height: 3.43rem;
   padding: 1em 2em 0.8em;
   position: relative;
   z-index: 0;
   font-weight: bold;
   color: rgb(var(--default-color));
   border-radius: 2em;
+  transition: width 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .Button,
@@ -16,7 +18,8 @@
   background-color: rgb(var(--default-background-color));
 }
 
-.Button[disabled] {
+.Button[disabled],
+[disabled] .Button {
   opacity: 0.6
 }
 
@@ -24,4 +27,38 @@
 .Button--invert:hover {
   color: rgb(var(--current-background));
   background-color: rgb(var(--current-color));
+}
+
+.Button-text {
+  display: block;
+  white-space: nowrap;
+  transition: color 300ms 150ms var(--ease-out);
+}
+
+.Button.is-minimized {
+  width: 3.43rem !important;
+  transition: width 200ms 150ms var(--ease-in);
+  padding: 1em 0.9em 0.8em;
+}
+
+.Button.is-minimized .Button-text {
+  color: transparent;
+  transition: 200ms color var(--ease-in);
+}
+
+.Button-text::after {
+  content: "+";
+  color: rgb(var(--default-color));
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  font-size: 1.3rem;
+  opacity: 0;
+  transition: 180ms opacity var(--ease-out);
+}
+
+.Button.is-minimized .Button-text::after {
+  opacity: 1;
+  transition: 180ms 350ms opacity var(--ease-out);
 }

@@ -1,7 +1,7 @@
 var html = require('choo/html')
 var nanoraf = require('nanoraf')
 var Component = require('choo/component')
-var button = require('../button')
+var Button = require('../button')
 var { srcset, i18n, vh } = require('../base')
 
 var text = i18n()
@@ -12,9 +12,12 @@ module.exports = class Welcome extends Component {
     this.local = state.components[id] = {
       id: id,
       loaded: false,
+      done: false,
+      minimized: true,
       inview: 0,
       offset: 0
     }
+    this.button = new Button('welcome-button')
   }
 
   static loading () {
@@ -68,7 +71,14 @@ module.exports = class Welcome extends Component {
         prev = self.local.offset
         range = Math.min(Math.max(scroll - top, 0), bgMax)
         next = self.local.offset = +(range / bgMax).toFixed(3)
-        if (next !== offset) el.style.setProperty('--Welcome-offset', next)
+        if (next !== offset) {
+          el.style.setProperty('--Welcome-offset', next)
+          self.local.done = next === 1
+          if (self.local.minimized === self.local.done) {
+            self.local.minimized = !self.local.minimized
+            self.rerender()
+          }
+        }
       })
       var onresize = nanoraf(function () {
         top = offset(el)
@@ -105,7 +115,7 @@ module.exports = class Welcome extends Component {
             </div>
             <img class="Welcome-image js-image ${this.local.loaded ? 'is-loaded' : ''}" width="318" height="256" sizes="(min-width: 1000px) 644px, 100vw" srcset="${srcset(image, [400, 600, [900, 'q_50'], [1200, 'q_50']], { type: 'upload' })}" src="/media/upload/q_auto,w_644/${image}" alt="${text`Picture of Hempur toilet paper 6-pack`}">
             <div class="Welcome-link">
-              ${button({ href: props.link.href, text: props.link.text })}
+              ${this.button.render({ href: props.link.href, minimized: this.local.minimized, text: props.link.text })}
             </div>
           </div>
         </div>
