@@ -4,7 +4,7 @@ var { asText } = require('prismic-richtext')
 var hero = require('../components/hero')
 var float = require('../components/float')
 var embed = require('../components/embed')
-var button = require('../components/button')
+var Button = require('../components/button')
 var inventory = require('../components/inventory')
 var { i18n, srcset } = require('../components/base')
 
@@ -68,7 +68,7 @@ function product (state, emit) {
                     <strong class="Text-label">${doc.data.follow_up_subheading}</strong>
                     <h2 class="Text-h1 u-spaceT2">${asText(doc.data.follow_up_heading)}</h2>
                   </div>
-                  ${button({ href: state.prismic.resolve(doc.data.follow_up_link), text: doc.data.follow_up_link_text })}
+                  ${new Button('product-button').render({ href: state.prismic.resolve(doc.data.follow_up_link), text: doc.data.follow_up_link_text })}
                 </div>
               </div>
             </div>
