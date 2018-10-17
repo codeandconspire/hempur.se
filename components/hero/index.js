@@ -13,8 +13,8 @@ function hero (props) {
     <div class="Hero">
       <div class="u-container">
         <picture>
-          <source media="(max-width: 999px)" srcset="${srcset(portrait.url, [400, 600, 1000, [2000, 'q_25']])}">
-          <source media="(min-width: 1000px)" srcset="${srcset(landscape.url, [1000, 1600, [2000, 'q_50'], [2800, 'q_25'], [3600, 'q_25']])}">
+          <source media="(max-width: 999px)" srcset="${srcset(portrait.url, [400, 600, 1000, [2000, 'q_35']])}">
+          <source media="(min-width: 1000px)" srcset="${srcset(landscape.url, [1000, 1600, [2000, 'q_60'], [2800, 'q_35'], [3600, 'q_35']])}">
           <img class="Hero-background" alt="${props.image.alt}" src="/media/fetch/q_auto,w_1600/${props.image.landscape.url}">
         </picture>
         <div class="Text Text--center">

@@ -27,12 +27,12 @@ function product (state, emit) {
       `
     }
 
-    var image = 'v1539262386/hempur/toapapper-rulle_ih9ndb.png'
+    var image = 'v1539262386/hempur/toarulle.png'
     var attrs = {
       width: 1018,
       height: 1244,
       sizes: '(min-width: 1000px) 563px, 266px',
-      srcset: srcset(image, [300, 500, 900, [1200, 'q_50']], { type: 'upload' }),
+      srcset: srcset(image, [300, 500, 900, [1200, 'q_60']], { type: 'upload' }),
       src: `/media/upload/q_auto,w_266/${image}`,
       alt: text`Picture of Hempur toilet roll`
     }
@@ -90,7 +90,7 @@ function product (state, emit) {
       case 'image': return html`
         <div class="u-container u-spaceV8">
           <div class="Text u-sizeFull">
-            <img width="${slice.primary.image.width}" height="${slice.primary.image.height}" sizes="(min-width: 1800px) 1800px, 100vw" srcset="${srcset(slice.primary.image.url, [400, 600, 1000, 1800, [2800, 'q_25'], [3600, 'q_25']])}" src="${slice.primary.image.url}" alt="${slice.primary.image.alt || ''}">
+            <img width="${slice.primary.image.width}" height="${slice.primary.image.height}" sizes="(min-width: 1800px) 1800px, 100vw" srcset="${srcset(slice.primary.image.url, [400, 600, 1000, 1800, [2800, 'q_35'], [3600, 'q_35']])}" src="${slice.primary.image.url}" alt="${slice.primary.image.alt || ''}">
           </div>
         </div>
       `

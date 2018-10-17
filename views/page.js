@@ -78,7 +78,7 @@ function page (state, emit) {
         return html`
           <div class="u-container u-spaceV8">
             <div class="Text u-sizeFull">
-              <img width="${image.width}" height="${image.height}" sizes="(min-width: 1800px) 1800px, 100vw" srcset="${srcset(image.url, [400, 600, 1000, 1800, [2800, 'q_25'], [3600, 'q_25']])}" src="${image.url}" alt="${image.alt || ''}">
+              <img width="${image.width}" height="${image.height}" sizes="(min-width: 1800px) 1800px, 100vw" srcset="${srcset(image.url, [400, 600, 1000, 1800, [2800, 'q_35'], [3600, 'q_35']])}" src="${image.url}" alt="${image.alt || ''}">
             </div>
           </div>
         `
