@@ -65,20 +65,20 @@ module.exports = class Welcome extends Component {
         var range = Math.min(Math.max(scroll + vh() - top, 0), imgMax)
         var value = +(range / imgMax).toFixed(3)
         var next = self.local.inview = 1 - (Math.cos(Math.PI * value) + 1) / 2
-        if (next !== prev) el.style.setProperty('--Welcome-inview', next)
-
-        // transform backgrund
-        prev = self.local.offset
-        range = Math.min(Math.max(scroll - top, 0), bgMax)
-        next = self.local.offset = +(range / bgMax).toFixed(3)
-        if (next !== offset) {
-          el.style.setProperty('--Welcome-offset', next)
+        if (next !== prev) {
+          el.style.setProperty('--Welcome-inview', next)
           self.local.done = next === 1
           if (self.local.minimized === self.local.done) {
             self.local.minimized = !self.local.minimized
             self.rerender()
           }
         }
+
+        // transform backgrund
+        prev = self.local.offset
+        range = Math.min(Math.max(scroll - top, 0), bgMax)
+        next = self.local.offset = +(range / bgMax).toFixed(3)
+        if (next !== offset) el.style.setProperty('--Welcome-offset', next)
       })
       var onresize = nanoraf(function () {
         top = offset(el)
