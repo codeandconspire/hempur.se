@@ -13,6 +13,7 @@
   background-color: rgb(var(--default-background-color));
   border-radius: 2em;
   text-align: left;
+  box-shadow: none;
 }
 
 .Form-input:focus {
