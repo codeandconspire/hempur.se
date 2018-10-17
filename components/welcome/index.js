@@ -12,7 +12,8 @@ module.exports = class Welcome extends Component {
     this.local = state.components[id] = {
       id: id,
       loaded: false,
-      inview: 0
+      inview: 0,
+      offset: 0
     }
   }
 
@@ -52,19 +53,27 @@ module.exports = class Welcome extends Component {
       self.local.loaded = true
       self.rerender()
 
-      var top, max
+      var top, imgMax, bgMax
       var onscroll = nanoraf(function () {
-        var scroll = window.scrollY + vh()
+        var scroll = window.scrollY
+
         var prev = self.local.inview
-        var range = Math.min(Math.max(scroll - top, 0), max)
-        var value = +(range / max).toFixed(3)
+        var range = Math.min(Math.max(scroll + vh() - top, 0), imgMax)
+        var value = +(range / imgMax).toFixed(3)
         var next = self.local.inview = 1 - (Math.cos(Math.PI * value) + 1) / 2
         if (next !== prev) el.style.setProperty('--Welcome-inview', next)
+
+        prev = self.local.offset
+        range = Math.min(Math.max(scroll - top, 0), bgMax)
+        next = self.local.offset = +(range / bgMax).toFixed(3)
+        if (next !== offset) el.style.setProperty('--Welcome-offset', next)
       })
       var onresize = nanoraf(function () {
         top = offset(el)
         var height = image.offsetHeight
-        max = offset(image) + height + (height / 2)
+        imgMax = offset(image) + height * 1.5
+        height = background.offsetHeight
+        bgMax = offset(background) + height * 1.5
       })
 
       onresize()
@@ -82,7 +91,7 @@ module.exports = class Welcome extends Component {
     var image = 'v1539257536/hempur/toapapper-pack.png'
     var background = 'v1539262386/hempur/toapapper-rulle_ih9ndb.png'
     return html`
-      <div class="Welcome" id=${this.local.id} style="--Welcome-inview: ${this.local.inview}">
+      <div class="Welcome" id=${this.local.id} style="--Welcome-inview: ${this.local.inview}; --Welcome-offset: ${this.local.offset}">
         <div class="u-container">
           <div class="Welcome-wrapper">
             <img aria-hidden="true" role="presentational" class="Welcome-background js-background ${this.local.loaded ? 'is-loaded' : ''}" width="1018" height="1244" sizes="(min-width: 1000px) 563px, 266px" srcset="${srcset(background, [300, 500, 900, [1200, 'q_50']], { type: 'upload' })}" src="/media/upload/q_auto,w_266/${background}" alt="${text`Picture of Hempur toilet roll`}">

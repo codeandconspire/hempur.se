@@ -4,7 +4,8 @@
 .Welcome {
   --ease-out: cubic-bezier(0.165, 0.78, 0.44, 1);
   --Welcome-inview: 0;
-  --Welcome-grow: 1.5;
+  --Welcome-offset: 0;
+  --Welcome-grow: 2;
 
   padding: 7rem 0;
   position: relative;
@@ -16,15 +17,16 @@
   will-change: opacity, transform;
 }
 
-@media (min-height: 600px) {
+@media (min-height: 800px) {
   .Welcome {
-    padding-top: 10rem;
+    padding-top: 8rem;
   }
 }
 
 @media (min-width: 1000px) {
   .Welcome {
     --Welcome-grow: 2.5;
+    padding-top: 10rem;
   }
 }
 
@@ -59,11 +61,11 @@
 
 @media (max-width: 600px) and (min-height: 600px) {
   .Welcome-body {
-    min-height: 65vh;
+    min-height: 55vh;
   }
 
   .Welcome-body::before {
-    height: 10vh;
+    height: 8vh;
   }
 }
 
@@ -84,18 +86,28 @@
   z-index: 1;
   opacity: 0;
   transform-origin: 50% 0;
-  transform: translateY(18%) scale(calc(1 + var(--Welcome-grow) * (1 - var(--Welcome-inview, 1))));
 }
 
 .Welcome-image.is-loaded {
-  animation: Welcome-image--appear 450ms 400ms forwards var(--ease-out);
+  transform: translateY(calc(-10% * var(--Welcome-inview, 0))) scale(calc(1 + var(--Welcome-grow) * (1 - var(--Welcome-inview, 1))));
+  animation:
+    Welcome-image--appear 450ms 400ms var(--ease-out),
+    Welcome-image--fadein 450ms 400ms forwards var(--ease-out);
   will-change: opacity, transform;
 }
 
 @keyframes Welcome-image--appear {
+  from {
+    transform: translateY(18%) scale(calc(1 + var(--Welcome-grow) * (1 - var(--Welcome-inview, 1))));
+  }
+  to {
+    transform: translateY(calc(-10% * var(--Welcome-inview, 0))) scale(calc(1 + var(--Welcome-grow) * (1 - var(--Welcome-inview, 1))));
+  }
+}
+
+@keyframes Welcome-image--fadein {
   to {
     opacity: 1;
-    transform: translateY(calc(-10% * var(--Welcome-inview, 0))) scale(calc(1 + var(--Welcome-grow) * (1 - var(--Welcome-inview, 1))));
   }
 }
 
@@ -104,21 +116,31 @@
   height: auto;
   position: absolute;
   right: -4rem;
-  top: -3rem;
+  top: 2rem;
   z-index: -1;
   opacity: 0;
-  transform: translateY(-25%);
 }
 
 .Welcome-background.is-loaded {
-  animation: Welcome-background--appear 500ms 200ms forwards var(--ease-out);
+  transform: translateY(calc(40% * var(--Welcome-offset, 0)));
+  animation:
+    Welcome-background--appear 500ms 200ms var(--ease-out),
+    Welcome-background--fadein 500ms 200ms forwards var(--ease-out);
   will-change: opacity, transform;
 }
 
 @keyframes Welcome-background--appear {
+  from {
+    transform: translateY(-25%);
+  }
+  to {
+    transform: translateY(calc(75% * var(--Welcome-offset, 0)));
+  }
+}
+
+@keyframes Welcome-background--fadein {
   to {
     opacity: 1;
-    transform: translateY(-140%) translateY(calc(200% * var(--Welcome-inview, 0)));
   }
 }
 
