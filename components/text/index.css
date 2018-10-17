@@ -251,14 +251,14 @@
 .Text .Text-h4 a,
 .Text .Text-h5 a,
 .Text .Text-h6 a {
-  padding-bottom: 0;
-  border-bottom: none;
-  line-height: inherit;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+  line-height: inherit !important;
 }
 
 .Text h1,
 .Text .Text-h1 {
-  font-size: 3.5em;
+  font-size: 3.2em;
   line-height: 1.1;
 }
 
