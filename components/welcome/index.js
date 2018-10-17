@@ -57,12 +57,14 @@ module.exports = class Welcome extends Component {
       var onscroll = nanoraf(function () {
         var scroll = window.scrollY
 
+        // transform image
         var prev = self.local.inview
         var range = Math.min(Math.max(scroll + vh() - top, 0), imgMax)
         var value = +(range / imgMax).toFixed(3)
         var next = self.local.inview = 1 - (Math.cos(Math.PI * value) + 1) / 2
         if (next !== prev) el.style.setProperty('--Welcome-inview', next)
 
+        // transform backgrund
         prev = self.local.offset
         range = Math.min(Math.max(scroll - top, 0), bgMax)
         next = self.local.offset = +(range / bgMax).toFixed(3)
@@ -94,14 +96,14 @@ module.exports = class Welcome extends Component {
       <div class="Welcome" id=${this.local.id} style="--Welcome-inview: ${this.local.inview}; --Welcome-offset: ${this.local.offset}">
         <div class="u-container">
           <div class="Welcome-wrapper">
-            <img aria-hidden="true" role="presentational" class="Welcome-background js-background ${this.local.loaded ? 'is-loaded' : ''}" width="1018" height="1244" sizes="(min-width: 1000px) 563px, 266px" srcset="${srcset(background, [300, 500, 900, [1200, 'q_50']], { type: 'upload' })}" src="/media/upload/q_auto,w_266/${background}" alt="${text`Picture of Hempur toilet roll`}">
+            <img aria-hidden="true" role="presentational" class="Welcome-background js-background ${this.local.loaded ? 'is-loaded' : ''}" width="1018" height="1244" sizes="(min-width: 1000px) 450px, 266px" srcset="${srcset(background, [300, [500, 'q_50'], [900, 'q_25']], { type: 'upload' })}" src="/media/upload/q_auto,w_266/${background}" alt="${text`Picture of Hempur toilet roll`}">
             <div class="Welcome-body">
               <div class="Text">
                 <h1 class="Text-stack">${props.heading}</h1>
                 <p><strong>${props.subheading}</strong></p>
               </div>
             </div>
-            <img class="Welcome-image js-image ${this.local.loaded ? 'is-loaded' : ''}" width="318" height="256" sizes="(min-width: 1000px) 644px, 100vw" srcset="${srcset(image, [400, 600, 900, [1200, 'q_50']], { type: 'upload' })}" src="/media/upload/q_auto,w_644/${image}" alt="${text`Picture of Hempur toilet paper 6-pack`}">
+            <img class="Welcome-image js-image ${this.local.loaded ? 'is-loaded' : ''}" width="318" height="256" sizes="(min-width: 1000px) 644px, 100vw" srcset="${srcset(image, [400, 600, [900, 'q_50'], [1200, 'q_50']], { type: 'upload' })}" src="/media/upload/q_auto,w_644/${image}" alt="${text`Picture of Hempur toilet paper 6-pack`}">
             <div class="Welcome-link">
               ${button({ href: props.link.href, text: props.link.text })}
             </div>

@@ -26,7 +26,6 @@
 @media (min-width: 1000px) {
   .Welcome {
     --Welcome-grow: 2.5;
-    padding-top: 10rem;
   }
 }
 
@@ -159,7 +158,7 @@
   }
 
   .Welcome-background {
-    width: 550px;
+    width: 450px;
     top: -11rem;
     right: 0;
   }
