@@ -32,6 +32,11 @@ function home (state, emit) {
       href: state.prismic.resolve(doc.data.product_link)
     }
 
+    var noticeLink = {
+      text: doc.data.notice_link_text,
+      href: state.prismic.resolve(doc.data.notice_link)
+    }
+
     emit('meta', {
       title: 'Hempur',
       description: asText(doc.data.description),
@@ -41,7 +46,7 @@ function home (state, emit) {
     return html`
       <main class="View-main View-main--stack">
         ${state.cache(Welcome, 'homepage-welcome').render({ heading, subheading, link })}
-        ${notice({ text: text`Hitta återförsäljare`, link: '/#' })}
+        ${notice(noticeLink)}
         ${doc.data.slices.map(fromSlice)}
       </main>
     `
