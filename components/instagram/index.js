@@ -12,8 +12,8 @@ function instagram (props) {
       <ol class="Instagram-feed">
         ${props.images.map((image, index, list) => html`
           <li class="Instagram-item" style="z-index: ${list.length - index};">
-            <a href="${image.href}" target="_blank" rel="noopener noreferrer">
-              <img class="Instagram-image" alt="${image.alt || ''}" sizes="(min-width: 1000px) 300px, 50vw" srcset="${srcset(image.url, [200, 400, 600], { aspect: 1, transform: 'c_thumb' })}" src="/media/fetch/w_400,h_400,c_thumb/${image.url}">
+            <a class="Instagram-link" href="${image.href}" target="_blank" rel="noopener noreferrer">
+              <img class="Instagram-image" draggable="false" alt="${image.alt || ''}" sizes="(min-width: 1000px) 300px, 50vw" srcset="${srcset(image.url, [200, 400, 600], { aspect: 1, transform: 'c_thumb' })}" src="/media/fetch/w_400,h_400,c_thumb/${image.url}">
             </a>
           </li>
         `)}

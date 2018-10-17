@@ -21,7 +21,6 @@
 .Instagram-item {
   flex: 1 1 auto;
   margin: 0.5rem;
-  box-shadow: -0.6rem 0.6rem 2rem 0 rgba(0, 0, 0, 0.20);
 }
 
 .Instagram-item {
@@ -33,6 +32,21 @@
   display: block;
   height: 0;
   padding-top: 100%;
+}
+
+.Instagram-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: block;
+  box-shadow: -0.6rem 0.6rem 2rem 0 rgba(0, 0, 0, 0.20);
+  transition: transform 250ms var(--ease-out);
+}
+
+.Instagram-link:active {
+  transition: transform 80ms var(--ease-out);
+  transform: scale(0.98);
 }
 
 @media (max-width: 1000px) {
@@ -68,16 +82,21 @@
 }
 
 .Instagram-image {
-  position: absolute;
-  left: 0;
-  top: 0;
+  display: block;
   width: 100%;
 }
 
 .Instagram-footer {
   display: inline-flex;
-  margin-top: 2rem;
+  padding: 1rem;
+  margin: 1rem -1rem -1rem;
   font-weight: bold;
+  user-select: none;
+}
+
+.Instagram-footer:active {
+  transition: opacity 100ms var(--ease-out);
+  opacity: 0.4;
 }
 
 .Instagram-icon {

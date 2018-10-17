@@ -33,3 +33,8 @@
   vertical-align: top;
   margin: 0 1.5rem;
 }
+
+.Notice-link:active {
+  transition: opacity 100ms var(--ease-out);
+  opacity: 0.5;
+}

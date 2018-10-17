@@ -11,6 +11,7 @@
   color: rgb(var(--default-color));
   border-radius: 2em;
   transition: width 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  user-select: none;
 }
 
 .Button,
@@ -61,4 +62,9 @@
 .Button.is-minimized .Button-text::after {
   opacity: 1;
   transition: 180ms 350ms opacity var(--ease-out);
+}
+
+.Button:active {
+  transition: transform 100ms var(--ease-out);
+  transform: scale(0.97);
 }

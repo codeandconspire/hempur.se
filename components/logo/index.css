@@ -4,6 +4,7 @@
 .Logo {
   width: 90px;
   height: 39px;
+  user-select: none;
 }
 
 @media (min-width: 1000px) {
@@ -11,4 +12,9 @@
     width: 118px;
     height: 51px;
   }
+}
+
+.Logo:active {
+  transition: transform 100ms var(--ease-out);
+  transform: scale(0.95);
 }

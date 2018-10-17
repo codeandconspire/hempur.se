@@ -14,6 +14,7 @@
   border-radius: 2em;
   text-align: left;
   box-shadow: none;
+  appearance: none;
 }
 
 .Form-input:focus {

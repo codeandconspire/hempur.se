@@ -44,6 +44,11 @@
   color: currentColor;
 }
 
+.Text a:not(.Text-ignore):active {
+  transition: opacity 100ms var(--ease-out);
+  opacity: 0.4;
+}
+
 .Text small {
   font-size: 0.8em;
 }
@@ -176,6 +181,11 @@
   position: relative;
 }
 
+.Text summary:active {
+  transition: opacity 100ms var(--ease-out);
+  opacity: 0.5;
+}
+
 .Text summary::-webkit-details-marker {
   display: none;
 }
@@ -193,6 +203,7 @@
   flex: 0 0 auto;
   transition: transform 200ms var(--ease);
   transform-origin: center center;
+  will-change: transform;
 }
 
 .Text details[open] summary::after {

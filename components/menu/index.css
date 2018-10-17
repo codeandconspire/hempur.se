@@ -5,6 +5,7 @@
   display: flex;
   font-size: 1rem;
   margin: 0 -0.5rem;
+  user-select: none;
 }
 
 @media (min-width: 40rem) {
@@ -22,6 +23,11 @@
 
 .Menu-link {
   display: inline-block;
+}
+
+.Menu-link:active {
+  transition: opacity 100ms var(--ease-out);
+  opacity: 0.4;
 }
 
 .Menu-link::after {
