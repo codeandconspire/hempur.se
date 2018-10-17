@@ -6,8 +6,9 @@
   width: 100%;
   position: relative;
   color: rgb(var(--current-background));
-  max-height: 90vh;
+  max-height: 80vh;
   overflow: hidden;
+  user-select: none;
 }
 
 .Embed-image::after {
@@ -19,7 +20,13 @@
   left: 0;
   background: rgba(0, 0, 0, 0.15);
   pointer-events: none;
+  transition: background 120ms var(--ease-out);
 }
+
+.Embed:active .Embed-image::after {
+  background: rgba(0, 0, 0, 0.3);
+}
+
 
 .Embed--fullscreen::after,
 .Embed--hidden::after {
@@ -127,12 +134,19 @@
   height: 1.5rem;
   padding: 1rem;
   position: absolute;
-  top: 2rem;
-  right: 2rem;
-  border-radius: 2px;
+  top: 0.5rem;
+  right: 0.5rem;
+  border-radius: 50%;
   pointer-events: none;
   background-color: rgba(81, 81, 81, 0);
   transition: background-color 180ms var(--ease-out);
+}
+
+@media (min-width: 1000px) {
+  .Embed-cross {
+    top: 2rem;
+    right: 2rem;
+  }
 }
 
 .Embed-cross::before,
@@ -160,7 +174,7 @@
 
 .Embed-wrapper {
   height: 0;
-  width: 75%;
+  width: 100%;
   max-width: var(--max-width);
 
   position: absolute;
