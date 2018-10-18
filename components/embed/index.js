@@ -55,7 +55,7 @@ module.exports = class Embed extends Component {
 
   createElement (props) {
     var [provider, id] = parse(props.url)
-    var src = `/${provider}/w_900,c_fill,q_auto/${id}`
+    var src = `/media/${provider}/w_900,c_fill,q_auto/${id}`
     var portrait = [
       `/media/${provider}/w_400,h_533,c_fill,q_auto/${id} 400w`,
       `/media/${provider}/w_600,h_800,c_fill,q_auto/${id} 600w`,
