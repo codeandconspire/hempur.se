@@ -21,7 +21,7 @@ app.use(require('./stores/meta'))
 
 app.route('/', View.create(
   () => import('./views/home'),
-  prefetch((state) => Predicates.at('document.type', 'home'))
+  prefetch((state) => Predicates.at('document.type', 'homepage'))
 ))
 app.route('/produkter/:uid', View.create(
   () => import('./views/product'),
@@ -49,7 +49,7 @@ try {
 // fn -> fn
 function prefetch (predicate) {
   return function (state, emit) {
-    state.prismic.get(predicate(state), { prefetch: true })
+    state.prismic.get(predicate(state))
     return document.body
   }
 }
