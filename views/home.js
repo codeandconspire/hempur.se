@@ -133,7 +133,7 @@ function home (state, emit) {
                     ${asElement(slice.primary.text)}
                   </div>
                 </div>
-                <form method="POST" action="https://hempur.us17.list-manage.com/subscribe/post?u=f370c1cff5e90925d5bbd63fe&id=d0c441a83e" class="Form" onsubmit=${onsubmit} target="_blank">
+                <form method="POST" action="${state.mailchimp}" class="Form" onsubmit=${onsubmit} target="_blank">
                   <fieldset class="js-fieldset">
                     ${slice.primary.ref ? html`<input type="hidden" name="REF" value="${slice.primary.ref}">` : null}
                     <label class="u-block u-spaceB2">
@@ -152,9 +152,10 @@ function home (state, emit) {
     }
 
     function onsubmit (event) {
+      var data = new window.FormData(this)
       var fieldset = this.querySelector('.js-fieldset')
       fieldset.disabled = true
-      emit('subscribe', new window.FormData(this), this.action)
+      emit('subscribe', data)
       event.preventDefault()
     }
   })
