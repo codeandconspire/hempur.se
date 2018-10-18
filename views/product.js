@@ -3,7 +3,7 @@ var asElement = require('prismic-element')
 var { asText } = require('prismic-richtext')
 var hero = require('../components/hero')
 var float = require('../components/float')
-var embed = require('../components/embed')
+var Embed = require('../components/embed')
 var Button = require('../components/button')
 var inventory = require('../components/inventory')
 var { i18n, srcset } = require('../components/base')
@@ -78,7 +78,7 @@ function product (state, emit) {
     `
   })
 
-  function fromSlice (slice) {
+  function fromSlice (slice, index) {
     switch (slice.slice_type) {
       case 'text': return html`
         <div class="u-container u-spaceV8">
@@ -94,7 +94,7 @@ function product (state, emit) {
           </div>
         </div>
       `
-      case 'video': return embed({
+      case 'video': return state.cache(Embed, `product-video-${index}`).render({
         url: slice.primary.embed.embed_url,
         title: slice.primary.embed.title
       })

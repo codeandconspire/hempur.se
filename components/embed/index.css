@@ -3,12 +3,32 @@
 @import "../base";
 
 .Embed {
+  --Embed-inview: 0;
+  display: flex;
   width: 100%;
   position: relative;
   color: rgb(var(--current-background));
   max-height: 80vh;
   overflow: hidden;
   user-select: none;
+}
+
+.Embed-figure {
+  flex: 1 1 100%;
+}
+
+.Embed--fullscreen::after,
+.Embed--hidden::after {
+  content: none;
+}
+
+.Embed-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform-origin: 0 50%;
+  transform: translateY(-15%) translateY(calc(30% * var(--Embed-inview, 0))) scale(1.1);
+  will-change: transform;
 }
 
 .Embed-image::after {
@@ -25,18 +45,6 @@
 
 .Embed:active .Embed-image::after {
   background: rgba(0, 0, 0, 0.3);
-}
-
-
-.Embed--fullscreen::after,
-.Embed--hidden::after {
-  content: none;
-}
-
-.Embed-image {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 .Embed-caption {

@@ -110,3 +110,13 @@ function isSameDomain (url) {
     return true
   }
 }
+
+// get element scroll offset
+// Element -> num
+exports.offset = offset
+function offset (el) {
+  var parent = el
+  var top = el.offsetTop
+  while ((parent = parent.offsetParent)) top += parent.offsetTop
+  return top
+}

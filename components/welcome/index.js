@@ -2,7 +2,7 @@ var html = require('choo/html')
 var nanoraf = require('nanoraf')
 var Component = require('choo/component')
 var Button = require('../button')
-var { srcset, i18n, vh } = require('../base')
+var { srcset, i18n, vh, offset } = require('../base')
 
 var text = i18n()
 
@@ -122,13 +122,4 @@ module.exports = class Welcome extends Component {
       </div>
     `
   }
-}
-
-// get element scroll offset
-// Element -> num
-function offset (el) {
-  var parent = el
-  var top = el.offsetTop
-  while ((parent = parent.offsetParent)) top += parent.offsetTop
-  return top
 }
