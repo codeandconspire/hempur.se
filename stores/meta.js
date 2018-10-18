@@ -19,6 +19,7 @@ function meta (state, emitter) {
     }
 
     Object.keys(tags).forEach(function (key) {
+      if (typeof tags[key] !== 'string') return
       state.meta[key] = tags[key].replace(/^\//, state.origin + '/')
       if (typeof window === 'undefined') return
       var attribute = key.substr(0, 3) === 'og:' ? 'property' : 'name'
