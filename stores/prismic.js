@@ -47,7 +47,7 @@ function prismicStore (opts) {
 
       predicates = Array.isArray(predicates) ? predicates : [predicates]
       callback = typeof opts === 'function' ? opts : callback
-      opts = typeof opts === 'function' ? {} : opts
+      opts = typeof opts === 'function' ? {} : opts || {}
       callback = callback || Function.prototype
 
       if (typeof middleware === 'function') {
