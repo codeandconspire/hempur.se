@@ -17,6 +17,7 @@ app.use(require('./stores/prismic')({
   repository: REPOSITORY,
   resolve: require('./lib/resolve')
 }))
+app.use(require('./stores/tracking'))
 app.use(require('./stores/meta'))
 
 app.route('/', View.create(
