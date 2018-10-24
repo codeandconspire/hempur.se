@@ -37,7 +37,7 @@ View.wrap = function (view) {
         <body id="app" class="View">
           <header>
             <nav class="View-header u-container">
-              <a href="/" title="${text`Go to start page`}">${logo()}</a>
+              <a href="/" title="${text`Go to start page`}">${logo({ theme: 'green' })}</a>
               ${menu(doc.data.header_menu.map((item) => ({ href: state.prismic.resolve(item.link), text: item.label })), { direction: 'row' })}
             </nav>
           </header>
