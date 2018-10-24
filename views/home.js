@@ -46,8 +46,8 @@ function home (state, emit) {
     return html`
       <main class="View-main View-main--stack">
         ${state.cache(Welcome, 'homepage-welcome').render({ heading, subheading, link })}
-        ${notice(noticeLink)}
         ${doc.data.slices.map(fromSlice)}
+        ${notice(noticeLink)}
       </main>
     `
 
@@ -56,10 +56,16 @@ function home (state, emit) {
         case 'features': {
           return html`
             <div class="u-container u-spaceT4">
+              ${(slice.primary.features_title && slice.primary.text) ? html`
+                <div class="Text Text--center u-spaceT12">
+                  <h3 class="u-spaceT8">${asText(slice.primary.features_title)}</h3>
+                  ${asElement(slice.primary.text)}
+                </div>
+              ` : null}
+              
               ${features(slice.items.map((item) => html`
                 <div class="Text u-textCenter">
-                  <img width="150" sizes="150px" srcset="${srcset(item.image.url, [150, 300])}" src="/media/fetch/q_auto,w_150,c_fill/${item.image.url}" alt="${item.image.alt || asText(item.heading)}">
-                  <h2 class="Text-h3 u-spaceA0">${asText(item.heading)}</h2>
+                  <img width="150" sizes="150px" srcset="${srcset(item.image.url, [150, 300], { aspect: 150 / 200 })}" src="/media/fetch/q_auto,w_300,h_150,c_fill,g_north/${item.image.url}" alt="${item.image.alt}">
                   ${asElement(item.text)}
                 </div>
               `))}
