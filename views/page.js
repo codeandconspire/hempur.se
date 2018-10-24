@@ -8,6 +8,8 @@ var text = i18n()
 module.exports = page
 
 function page (state, emit) {
+  var hasDescription
+
   return state.prismic.getByUID('page', state.params.uid, function (err, doc) {
     if (err) throw err
     if (!doc) {
@@ -17,7 +19,7 @@ function page (state, emit) {
             <div class="Text Text--center">
               <h1 class="Text-label u-spaceB4"><span class="u-loading">${text`Loading`}</span></h1>
               <strong class="Text-h1"><span class="u-loading">${text`Fetching content`}</span></strong>
-              <p class="u-spaceT8"><span class="u-loading">${text`This part of the website is being fetched from the internet. If it takes too long – make sure you are connected to the internet.`}</span></p>
+              <p class="u-spaceT6"><span class="u-loading">${text`This part of the website is being fetched from the internet. If it takes too long – make sure you are connected to the internet.`}</span></p>
             </div>
           </div>
         </main>
@@ -25,6 +27,8 @@ function page (state, emit) {
     }
 
     var title = asText(doc.data.title)
+
+    hasDescription = doc.data.description
 
     emit('meta', {
       title: `${title} | Hempur`,
@@ -38,7 +42,7 @@ function page (state, emit) {
           <div class="Text Text--center">
             <h1 class="Text-label u-spaceB4">${title}</h1>
             <strong class="Text-h1">${asText(doc.data.heading)}</strong>
-            <p class="u-spaceT8">${asElement(doc.data.description, state.prismic.resolve)}</p>
+            <div class="u-spaceT6">${asElement(doc.data.description, state.prismic.resolve)}</div>
           </div>
         </div>
         ${doc.data.slices.map(fromSlice)}
@@ -51,7 +55,7 @@ function page (state, emit) {
   function fromSlice (slice, index) {
     switch (slice.slice_type) {
       case 'text': return html`
-        <div class="u-container u-spaceV6">
+        <div class="u-container ${(index === 1 && hasDescription) ? 'u-spaceV6' : 'u-spaceB6'}">
           <div class="Text Text--center">
             ${asElement(slice.primary.text, state.prismic.resolve)}
           </div>
