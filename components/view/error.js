@@ -22,9 +22,7 @@ function error (err, emit) {
           ` : html`
             <p>
               ${text`We apologize, an error has occured on our site. It may be temporary and you could` + ' '}
-              <a href="">${text`try again`}</a>
-              ${' ' + text`or go back to` + ' '}
-              <a href="/">${text`the homepage`}</a>.
+              <a href="/">${text`try again`}.</a>
             </p>
           `}
           <img width="426" height="213" height src="/media/upload/w_400/v1539258582/hempur/4ea.jpg.gif">
