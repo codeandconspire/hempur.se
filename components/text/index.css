@@ -163,10 +163,12 @@
 
 .Text details {
   display: block;
+  padding-right: 2.7rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-width: 0 0 1px 0;
   cursor: default;
   outline: 0;
+  position: relative;
 }
 
 .Text details:first-of-type {
@@ -176,9 +178,8 @@
 .Text summary {
   list-style: none;
   user-select: none;
-  padding: 1.4rem 2rem 1.4rem 0;
+  padding: 1.4rem 0 1.4rem 0;
   outline: 0;
-  position: relative;
 }
 
 .Text summary:active {
@@ -197,6 +198,8 @@
   right: 0.4rem;
   width: 1rem;
   height: 1rem;
+  padding: 1rem;
+  margin: -1rem;
   background: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20height%3D%228%22%20viewBox%3D%220%200%2014%208%22%20width%3D%2214%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m1078%20663v-7c0-.552285.44772-1%201-1s1%20.447715%201%201v8c0%20.552285-.44772%201-1%201h-8c-.55228%200-1-.447715-1-1s.44772-1%201-1z%22%20fill%3D%22%230f1a26%22%20transform%3D%22matrix(.70710678%20.70710678%20-.70710678%20.70710678%20-286.449314%20-1225.830265)%22%2F%3E%3C%2Fsvg%3E');
   background-repeat: no-repeat;
   background-position: center;
