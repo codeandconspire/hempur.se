@@ -182,13 +182,19 @@
 
 .Embed-wrapper {
   height: 0;
-  width: 100%;
+  width: 75%;
   max-width: var(--max-width);
 
   position: absolute;
   left: 50%;
   top: 50%;
   z-index: -1;
+}
+
+@media (orientation: portrait) {
+  .Embed-wrapper {
+    width: 95%;
+  }
 }
 
 .Embed-iframe {
