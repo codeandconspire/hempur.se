@@ -18,6 +18,7 @@ module.exports = class Welcome extends Component {
       offset: 0
     }
     this.button = new Button('welcome-button')
+    this.unload = Function.prototype
   }
 
   static loading () {
@@ -81,9 +82,11 @@ module.exports = class Welcome extends Component {
 
     onresize()
     onscroll()
-    window.addEventListener('scroll', onscroll)
-    window.addEventListener('resize', onresize)
-    this.unload = () => {
+    window.addEventListener('scroll', onscroll, { passive: true })
+    window.addEventListener('resize', onresize, { passive: true })
+    var unload = this.unload
+    this.unload = (el) => {
+      if (typeof unload === 'function') unload.call(this, el)
       this.local.loaded = false
       window.removeEventListener('scroll', onscroll)
       window.removeEventListener('resize', onresize)
