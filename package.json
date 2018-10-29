@@ -29,7 +29,7 @@
     ]
   },
   "now": {
-    "alias": "nya.hempur.se",
+    "alias": "www.hempur.se",
     "env": {
       "NODE_ENV": "production",
       "PRISMIC_HEMPUR_SECRET": "@prismic-hempur-secret",
