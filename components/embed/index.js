@@ -55,16 +55,16 @@ module.exports = class Embed extends Component {
 
   createElement (props) {
     var [provider, id] = parse(props.url)
-    var src = `/media/${provider}/w_900,c_fill,q_auto/${id}`
+    var src = `/media/${provider}/w_900,c_fill,q_35/${id}`
     var portrait = [
-      `/media/${provider}/w_400,h_533,c_fill,q_auto/${id} 400w`,
-      `/media/${provider}/w_600,h_800,c_fill,q_auto/${id} 600w`,
-      `/media/${provider}/w_999,h_1332,c_fill,q_auto/${id} 999w`
+      `/media/${provider}/w_400,h_533,c_fill,q_35/${id} 400w`,
+      `/media/${provider}/w_600,h_800,c_fill,q_35/${id} 600w`,
+      `/media/${provider}/w_999,h_1332,c_fill,q_35/${id} 999w`
     ]
     var landscape = [
-      `/media/${provider}/w_1000,c_fill,q_auto/${id} 1000w`,
-      `/media/${provider}/w_1800,c_fill,q_auto/${id} 1800w`,
-      `/media/${provider}/w_3600,c_fill,q_30/${id} 3600w`
+      `/media/${provider}/w_1000,c_fill,q_35/${id} 1000w`,
+      `/media/${provider}/w_1800,c_fill,q_35/${id} 1800w`,
+      `/media/${provider}/w_3600,c_fill,q_35/${id} 3600w`
     ]
 
     return html`

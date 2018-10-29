@@ -2,6 +2,7 @@ var html = require('choo/html')
 var asElement = require('prismic-element')
 var { asText } = require('prismic-richtext')
 var Embed = require('../components/embed')
+var Photo = require('../components/photo')
 var Button = require('../components/button')
 var { input } = require('../components/form')
 var Welcome = require('../components/welcome')
@@ -98,6 +99,9 @@ function home (state, emit) {
         case 'video': return state.cache(Embed, `home-video-${index}`).render({
           url: slice.primary.embed.embed_url,
           title: slice.primary.embed.title
+        })
+        case 'photo': return state.cache(Photo, `home-photo-${index}`).render({
+          image: slice.primary.image
         })
         case 'statement': {
           return html`

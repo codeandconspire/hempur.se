@@ -1,5 +1,6 @@
 var html = require('choo/html')
 var asElement = require('prismic-element')
+var instagram = require('../components/instagram')
 var { asText } = require('prismic-richtext')
 var { srcset, i18n } = require('../components/base')
 
@@ -46,6 +47,19 @@ function page (state, emit) {
           </div>
         </div>
         ${doc.data.slices.map(fromSlice)}
+        ${doc.data.follow_up_link_text ? html`
+          <div class="u-spaceT4 u-nbfc u-bgPaper u-colorPaperLight u-bgGradient">
+            <div class="u-spaceV6 u-colorDefault">
+              <div class="u-container u-textCenter ">
+                <div class="Text u-sizeFull u-spaceB6">
+                  <strong class="Text-label">${doc.data.follow_up_subheading}</strong>
+                  <h2 class="Text-h1 u-spaceT2">${asText(doc.data.follow_up_heading)}</h2>
+                </div>
+                ${new Button('product-button').render({ href: state.prismic.resolve(doc.data.follow_up_link), text: doc.data.follow_up_link_text })}
+              </div>
+            </div>
+          </div>
+        ` : null}
       </main>
     `
   })
@@ -65,17 +79,34 @@ function page (state, emit) {
         <div class="u-container u-spaceV6">
           <div class="Text Text--center">
             <h2>${asText(slice.primary.heading)}</h2>
-            ${slice.items.map((item) => html`
+            ${slice.items.map((item) => (item.heading.length && item.body.length) ? html`
               <details>
                 <summary>${asText(item.heading)}</summary>
                 <div class="Text Text--muted">
                   ${asElement(item.body)}
                 </div>
               </details>
-            `)}
+            ` : null)}
           </div>
         </div>
       `
+      case 'instagram': {
+        let items = slice.items.map(function (item) {
+          return {
+            alt: item.embed.title,
+            href: item.embed.embed_url,
+            url: item.embed.thumbnail_url
+          }
+        })
+
+        return html`
+          <div class="u-nbfc u-spaceV8">
+            <div class="u-container u-spaceV6">
+              ${instagram({ title: asText(slice.primary.heading), href: 'https://www.instagram.com/hempurofficial', images: items })}
+            </div>
+          </div>
+        `
+      }
       case 'image': {
         let image = slice.primary.image
         if (!image.url) return null

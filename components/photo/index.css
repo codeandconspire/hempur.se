@@ -1,0 +1,27 @@
+/* @defind Photo */
+
+@import "../base";
+
+.Photo {
+  --Photo-inview: 0;
+  display: flex;
+  width: 100%;
+  position: relative;
+  color: rgb(var(--current-background));
+  max-height: 80vh;
+  overflow: hidden;
+  user-select: none;
+}
+
+.Photo-figure {
+  flex: 1 1 100%;
+}
+
+.Photo-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform-origin: 0 50%;
+  transform: translateY(-15%) translateY(calc(30% * var(--Photo-inview, 0))) scale(1.1);
+  will-change: transform;
+}
