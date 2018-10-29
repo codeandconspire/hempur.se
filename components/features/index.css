@@ -25,5 +25,6 @@
   .Features-item {
     padding: 1rem;
     flex: 1 1 300px;
+    max-width: 25rem;
   }
 }
