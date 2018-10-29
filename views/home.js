@@ -162,10 +162,11 @@ function home (state, emit) {
     }
 
     function onsubmit (event) {
-      var data = new window.FormData(this)
-      var fieldset = this.querySelector('.js-fieldset')
+      var form = event.currentTarget
+      var data = new window.FormData(form)
+      var fieldset = form.querySelector('.js-fieldset')
       fieldset.disabled = true
-      emit('subscribe', data)
+      emit('subscribe', data, event.target.action)
       event.preventDefault()
     }
   })

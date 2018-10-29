@@ -10,7 +10,7 @@ function subscribe (state, emitter) {
       })
     }
 
-    window.fetch(`/subscribe`, {
+    window.fetch('/subscribe', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

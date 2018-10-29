@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/codeandconspire/hempur.se.git"
   },
+  "engines": {
+    "node": "^10.0.0"
+  },
   "author": "code and conspire",
   "license": "CC-BY-4.0",
   "bugs": {
