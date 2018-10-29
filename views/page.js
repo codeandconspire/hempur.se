@@ -1,6 +1,7 @@
 var html = require('choo/html')
 var asElement = require('prismic-element')
 var instagram = require('../components/instagram')
+var Button = require('../components/button')
 var { asText } = require('prismic-richtext')
 var { srcset, i18n } = require('../components/base')
 

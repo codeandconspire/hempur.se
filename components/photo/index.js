@@ -1,9 +1,7 @@
 var html = require('choo/html')
 var nanoraf = require('nanoraf')
 var Component = require('choo/component')
-var { i18n, offset, vh } = require('../base')
-
-var text = i18n()
+var { offset, vh } = require('../base')
 
 module.exports = class Embed extends Component {
   constructor (id, state, emit) {
