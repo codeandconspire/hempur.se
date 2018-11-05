@@ -20,7 +20,11 @@ function subscribe (state, emitter) {
       if (!res.ok) return res.text().then((text) => Promise.reject(text))
       emitter.emit('render')
     }).catch(() => {
-      window.location = url
+      url = new URL(url)
+      Object.keys(data).forEach(function (key) {
+        url.searchParams.set(key, data[key])
+      })
+      window.location = url.toString()
     })
   })
 }
