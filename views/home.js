@@ -3,15 +3,13 @@ var asElement = require('prismic-element')
 var { asText } = require('prismic-richtext')
 var Embed = require('../components/embed')
 var Photo = require('../components/photo')
-var Button = require('../components/button')
-var { input } = require('../components/form')
-var Welcome = require('../components/welcome')
 var notice = require('../components/notice')
+var Button = require('../components/button')
+var Welcome = require('../components/welcome')
 var features = require('../components/features')
 var instagram = require('../components/instagram')
-var { i18n, srcset } = require('../components/base')
-
-var text = i18n()
+var Subscribe = require('../components/subscribe')
+var { srcset } = require('../components/base')
 
 module.exports = home
 
@@ -63,7 +61,7 @@ function home (state, emit) {
                   ${asElement(slice.primary.text)}
                 </div>
               ` : null}
-              
+
               ${features(slice.items.map((item) => html`
                 <div class="Text u-textCenter">
                   <img width="150" sizes="150px" srcset="${srcset(item.image.url, [150, 300], { aspect: 150 / 200 })}" src="/media/fetch/q_auto,w_300,h_150,c_fill,g_north/${item.image.url}" alt="${item.image.alt}">
@@ -143,31 +141,13 @@ function home (state, emit) {
                     ${asElement(slice.primary.text)}
                   </div>
                 </div>
-                <form method="POST" action="${state.mailchimp}" class="Form" onsubmit=${onsubmit} target="_blank">
-                  <fieldset class="js-fieldset">
-                    ${slice.primary.ref ? html`<input type="hidden" name="REF" value="${slice.primary.ref}">` : null}
-                    <label class="u-block u-spaceB2">
-                      <span class="u-hiddenVisually">${text`Enter your e-mail address`}</span>
-                      ${input({ class: 'js-input', name: 'EMAIL', type: 'email', value: '', placeholder: text`Enter your e-mail address` })}
-                    </label>
-                    ${new Button(`newsletter-button-${index}`).render({ type: 'submit', class: 'Button--invert', text: text`Send` })}
-                  </fieldset>
-                </form>
+                ${state.cache(Subscribe, `newsletter-${index}`).render({ action: state.mailchimp, success: slice.primary.success_message, ref: slice.primary.ref })}
               </div>
             </div>
           `
         }
         default: return null
       }
-    }
-
-    function onsubmit (event) {
-      var form = event.currentTarget
-      var data = new window.FormData(form)
-      var fieldset = form.querySelector('.js-fieldset')
-      fieldset.disabled = true
-      emit('subscribe', data, event.target.action)
-      event.preventDefault()
     }
   })
 }
