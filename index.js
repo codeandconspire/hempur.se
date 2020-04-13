@@ -10,6 +10,7 @@ if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
   app.use(require('choo-devtools')())
   app.use(require('choo-service-worker/clear')())
 }
+
 app.use(require('choo-service-worker')('/sw.js'))
 app.use(require('./stores/navigation'))
 app.use(require('./stores/prismic')({
