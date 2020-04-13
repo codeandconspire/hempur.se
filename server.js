@@ -22,11 +22,10 @@ app.use(require('./lib/mailchimp-proxy'))
 
 // disallow robots anywhere but live URL
 app.use(get('/robots.txt', function (ctx, next) {
-  if (ctx.host === 'hempur.se') return next()
   ctx.type = 'text/plain'
   ctx.body = dedent`
     User-agent: *
-    Disallow: /
+    Disallow: ${app.env === 'production' ? '' : '/'}
   `
 }))
 
