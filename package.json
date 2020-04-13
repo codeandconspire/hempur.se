@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "standard",
-    "deploy": "npx now -T codeandconspire && npx now alias -T codeandconspire",
+    "purge": "node -r dotenv/config -e \"require('./lib/purge')(['/service-worker.js'], console.log)\"",
     "start": "node server.js"
   },
   "repository": {
@@ -30,18 +30,6 @@
         }
       ]
     ]
-  },
-  "now": {
-    "alias": "www.hempur.se",
-    "env": {
-      "NODE_ENV": "production",
-      "PRISMIC_HEMPUR_SECRET": "@prismic-hempur-secret",
-      "CLOUDFLARE_HEMPUR_ZONE": "@cloudflare-hempur-zone",
-      "CLOUDFLARE_CODEANDCONSPIRE_EMAIL": "@cloudflare-codeandconspire-email",
-      "CLOUDFLARE_CODEANDCONSPIRE_KEY": "@cloudflare-codeandconspire-key",
-      "CLOUDINARY_KEY": "@cloudinary-key",
-      "CLOUDINARY_SECRET": "@cloudinary-secret"
-    }
   },
   "standard": {
     "parser": "babel-eslint"

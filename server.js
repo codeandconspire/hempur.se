@@ -1,4 +1,4 @@
-if (!process.env.NOW) require('dotenv/config')
+if (!process.env.HEROKU) require('dotenv/config')
 
 var url = require('url')
 var jalla = require('jalla')
@@ -39,7 +39,7 @@ app.use(get('/produkter', function (ctx, next) {
 // add webhook for prismic updates
 app.use(post('/prismic-hook', compose([body(), async function (ctx) {
   var secret = ctx.request.body && ctx.request.body.secret
-  ctx.assert(secret === process.env.PRISMIC_HEMPUR_SECRET, 403, 'Secret mismatch')
+  ctx.assert(secret === process.env.PRISMIC_SECRET, 403, 'Secret mismatch')
   await purge()
   ctx.type = 'application/json'
   ctx.body = {}
@@ -47,9 +47,9 @@ app.use(post('/prismic-hook', compose([body(), async function (ctx) {
 
 // set preview cookie
 app.use(get('/prismic-preview', async function (ctx) {
-  var host = process.env.NOW_URL && url.parse(process.env.NOW_URL).host
+  var host = process.env.HOST && url.parse(process.env.HOST).host
   if (host && ctx.host !== host) {
-    return ctx.redirect(url.resolve(process.env.NOW_URL, ctx.url))
+    return ctx.redirect(url.resolve(process.env.HOST, ctx.url))
   }
 
   var token = ctx.query.token
@@ -89,7 +89,7 @@ app.use(function (ctx, next) {
   return next()
 })
 
-if (process.env.NOW && app.env === 'production') {
+if (process.env.HEROKU && app.env === 'production') {
   app.once('bundle:script', function () {
     purge(['/sw.js']).then(start)
   })

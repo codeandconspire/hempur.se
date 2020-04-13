@@ -33,10 +33,6 @@ app.route('/:uid', View.create(
   prefetch((state) => Predicates.at('my.page.uid', state.params.uid))
 ))
 
-if (process.env.NODE_ENV === 'development') {
-  app.route('/playground', View.create(() => import('./views/playground')))
-}
-
 try {
   module.exports = View.mount(app, 'body')
 } catch (err) {
