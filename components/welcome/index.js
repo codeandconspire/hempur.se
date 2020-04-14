@@ -94,8 +94,8 @@ module.exports = class Welcome extends Component {
   }
 
   createElement (props) {
-    var image = 'v1539257536/hempur/toapapper-pack.png'
-    var background = 'v1539262386/hempur/toarulle.png'
+    var image = 'https://images.prismic.io/hempur/786258d7-fdd6-4b11-80bd-7bdc7b5c56a6_toapapper-paket-2.png'
+    var background = 'https://images.prismic.io/hempur/c7e2b056-1eeb-4e48-9d24-d85f734037c7_toapapper-2.png'
     var queue = 2
     var onload = () => {
       queue--
@@ -106,14 +106,14 @@ module.exports = class Welcome extends Component {
       <div class="Welcome" id=${this.local.id} style="--Welcome-inview: ${this.local.inview}; --Welcome-offset: ${this.local.offset}">
         <div class="u-container">
           <div class="Welcome-wrapper">
-            <img onload=${onload} aria-hidden="true" role="presentational" class="Welcome-background js-background ${this.local.loaded ? 'is-loaded' : ''}" width="1018" height="1244" sizes="(min-width: 1000px) 450px, 266px" srcset="${srcset(background, [300, [500, 'q_60'], [900, 'q_35']], { type: 'upload' })}" src="/media/upload/q_auto,w_266/${background}" alt="${text`Picture of Hempur toilet roll`}">
+            <img onload=${onload} aria-hidden="true" role="presentational" class="Welcome-background js-background ${this.local.loaded ? 'is-loaded' : ''}" width="1018" height="1244" sizes="(min-width: 1000px) 450px, 266px" srcset="${srcset(background, [300, [500, 'q_60'], [900, 'q_35']], { type: 'fetch' })}" src="/media/fetch/q_auto,w_266/${background}" alt="${text`Picture of Hempur toilet roll`}">
             <div class="Welcome-body">
               <div class="Text">
                 <h1 class="Text-stack">${props.heading}</h1>
                 <p><strong>${props.subheading}</strong></p>
               </div>
             </div>
-            <img onload=${onload} class="Welcome-image js-image ${this.local.loaded ? 'is-loaded' : ''}" width="318" height="256" sizes="(min-width: 1000px) 644px, 100vw" srcset="${srcset(image, [400, 600, [900, 'q_60'], [1200, 'q_60']], { type: 'upload' })}" src="/media/upload/q_auto,w_644/${image}" alt="${text`Picture of Hempur toilet paper 6-pack`}">
+            <img onload=${onload} class="Welcome-image js-image ${this.local.loaded ? 'is-loaded' : ''}" width="318" height="256" sizes="(min-width: 1000px) 644px, 100vw" srcset="${srcset(image, [400, 600, [900, 'q_60'], [1200, 'q_60']], { type: 'fetch' })}" src="/media/fetch/q_auto,w_644/${image}" alt="${text`Picture of Hempur toilet paper 6-pack`}">
             <div class="Welcome-link">
               ${this.button.render({ href: props.link.href, minimized: this.local.minimized, text: props.link.text })}
             </div>
